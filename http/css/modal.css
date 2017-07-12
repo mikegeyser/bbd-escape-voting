@@ -1,0 +1,19 @@
+div.modal-content
+{
+    background-color: lightgray;
+}
+
+div#div-forms
+{
+    color: black;
+}
+
+
+img#img_logo.img-circle
+{
+    height: 5em;
+}
+
+a.btn.btn-primary.btn-lg{
+    width: 12em;
+}
