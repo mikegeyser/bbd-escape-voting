@@ -1,0 +1,36 @@
+<?php
+	$cookieExists = $_REQUEST["cookie"];
+	$rating = $_REQUEST["rating"];
+	$timeslot = $_REQUEST["timeslot"];
+	$tweet = $_REQUEST["comment"];
+
+	$conn = new mysqli("127.0.0.1", "bbd", "password","Escape", 3306); //change ip add
+
+	if (!$cookieExists){
+		$result = $conn->query("INSERT INTO VOTES(RATING, TIMESLOT) VALUES ($rating, $timeslot)");
+	}
+	
+	$result = INSERT INTO `VOTES`(`RATING`, `TIMESLOT`) VALUES (2,1)
+	
+	$result = $conn->query("SELECT HANDLE FROM PRESENTER WHERE PRESENTERID = $timeslot");
+	$output = array();
+	while($row = $result->fetch_assoc()){
+	   	$output[]=$row;
+	}
+	$handle = $output[0]["HANDLE"];
+
+	require_once('/var/www/html/scripts/codebird-php-develop/src/codebird.php'); //change path 
+
+	//change tokens/keys
+	\Codebird\Codebird::setConsumerKey("VzxIaeaMTuYDY226szsE7pDqf", "WHxqNppSV3tb4W69nNus7oG8TSUayd1ynwSANBc5dyoZfKPtzf");
+	$cb = \Codebird\Codebird::getInstance();
+	$cb->setToken("458461490-4EwiclXriv1dy0XKVWg8BHePTPLvl23PaMt1Scie", "5AbGaEMVcBaZLLxApt9yvSru2lupiPnkygW0FGz6aHSbs");
+
+	$params = array(
+  		'status' => "$tweet $handle #BBDEscape",
+	);
+	$reply = $cb->statuses_update($params);
+
+	$status = $reply->httpstatus; 
+    echo "HTTP Response Code: $status";
+?>
