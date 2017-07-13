@@ -35,7 +35,10 @@
                 </button>
                 <a class="navbar-brand" href="#"><img src="img/BBD-SoftwareDevelopment-White.png"></a>
             </div>
+
             <!-- Collect the nav links, forms, and other content for toggling -->
+
+            <!--
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                   <li class="dropdown">
@@ -64,7 +67,7 @@
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
-
+            <!-- ss -->
         </div>
         <!-- /.container -->
     </nav>
@@ -83,43 +86,38 @@
             <div class="item active">
 
                 <div class="row">
-		          <h1 class="text-center">Presenter 1: Topic</h1>
-                  <h2 class="text-center">Timeslot</h2>
+		          <h1 class="text-center"><text id="Presenter1Name">Presenter 1</text>: <text id="Presenter1Topic">Topic</h1>
+                  <h2 class="text-center">Date: <text id="Presenter1Date"> Today</h2>
+                      <h2 class="text-center"><text id="Presenter1Time"></h2>
                         <p class="text-center"><a href="#" class="btn btn-primary btn-lg" role="button"
-                                                  data-toggle="modal" data-target="#vote-modal">Vote and Comment</a></p>
+                                                  data-toggle="modal" data-target="#vote-modal1">Vote and Comment</a></p>
 	           </div>
 
-                <div class="carousel-caption">
-                    <h2>Speaker 1</h2>
-                </div>
 
             </div>
             <div class="item">
 
                 <div class="row">
-		          <h1 class="text-center">Presenter 2: Topic</h1>
-                  <h2 class="text-center">Timeslot</h2>
+		          <h1 class="text-center"><text id="Presenter2Name">Presenter 2</text>: <text id="Presenter2Topic">Topic</h1>
+                  <h2 class="text-center">Date: <text id="Presenter2Date"> Today</h2>
+                      <h2 class="text-center"><text id="Presenter2Time"></h2>
                         <p class="text-center"><a href="#" class="btn btn-primary btn-lg" role="button"
-                                                  data-toggle="modal" data-target="#vote-modal">Vote and Comment</a></p>
+                                                  data-toggle="modal" data-target="#vote-modal2">Vote and Comment</a></p>
 	           </div>
 
-                <div class="carousel-caption">
-                    <h2>Speaker 2</h2>
-                </div>
             </div>
 
             <div class="item">
 
                 <div class="row">
-		          <h1 class="text-center">Presenter 3: Topic</h1>
-                  <h2 class="text-center">Timeslot</h2>
+		          <h1 class="text-center"><text id="Presenter3Name">Presenter 3</text>: <text id="Presenter3Topic">Topic</h1>
+                  <h2 class="text-center">Date: <text id="Presenter3Date"> Today</h2>
+                      <h2 class="text-center"><text id="Presenter3Time"></h2>
                         <p class="text-center"><a href="#" class="btn btn-primary btn-lg" role="button"
-                                                  data-toggle="modal" data-target="#vote-modal">Vote and Comment</a></p>
+                                                  data-toggle="modal" data-target="#vote-modal3">Vote and Comment</a></p>
 	           </div>
 
-                <div class="carousel-caption">
-                    <h2>Speaker 3</h2>
-                </div>
+
             </div>
         </div>
 
@@ -133,8 +131,8 @@
 
     </header>
 
-    <!-- BEGIN # Form -->
-<div class="modal fade" id="vote-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <!-- BEGIN Presenter 1 Form -->
+<div class="modal fade" id="vote-modal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
     	<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header" align="center">
@@ -151,17 +149,20 @@
                     <form id="submit-form" method="post" action="scripts/newComment.php">
 		                <div class="modal-body">
 
+				            <input type="hidden" id="Presenter1ID"  name="presenterid" value="" />
+
+
 				    		<div class="stars">
-                                <input class="star star-5" id="star-5" value="5" type="radio" name="star"/>
-                                <label class="star star-5" for="star-5"></label>
-                                <input class="star star-4" id="star-4" value="4" type="radio" name="star"/>
-                                <label class="star star-4" for="star-4"></label>
-                                <input class="star star-3" id="star-3" value="3" type="radio" name="star"/>
-                                <label class="star star-3" for="star-3"></label>
-                                <input class="star star-2" id="star-2" value="2" type="radio" name="star"/>
-                                <label class="star star-2" for="star-2"></label>
-                                <input class="star star-1" id="star-1" value="1" type="radio" name="star"/>
-                                <label class="star star-1" for="star-1"></label>
+                                <input  id="star-5" value="5" type="radio" name="star"/>
+                                <label  for="star-5"></label>
+                                <input  id="star-4" value="4" type="radio" name="star"/>
+                                <label  for="star-4"></label>
+                                <input  id="star-3" value="3" type="radio" name="star"/>
+                                <label  for="star-3"></label>
+                                <input  id="star-2" value="2" type="radio" name="star"/>
+                                <label  for="star-2"></label>
+                                <input  id="star-1" value="1" type="radio" name="star"/>
+                                <label  for="star-1"></label>
                             </div>
 
                             <hr>
@@ -186,6 +187,122 @@
 			</div>
 		</div>
 	</div>
+    <!-- END # Form -->
+
+    <!-- BEGIN Presenter 2 Form -->
+<div class="modal fade" id="vote-modal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header" align="center">
+                    <img class="img-circle" id="img_logo" src="img/BBD-SoftwareDevelopment-White.png">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <i class="fa fa-times" aria-hidden="true"></i>
+                    </button>
+                </div>
+
+                <!-- Begin # DIV Form -->
+                <div id="div-forms">
+
+                    <!-- Begin # Rate and Vote Form -->
+                    <form id="submit-form" method="post" action="scripts/newComment.php">
+                        <div class="modal-body">
+
+                            <input type="hidden" id="Presenter2ID"  name="presenterid" value="" />
+
+
+                            <div class="stars">
+                                <input  id="star-5" value="5" type="radio" name="star"/>
+                                <label  for="star-5"></label>
+                                <input  id="star-4" value="4" type="radio" name="star"/>
+                                <label  for="star-4"></label>
+                                <input  id="star-3" value="3" type="radio" name="star"/>
+                                <label  for="star-3"></label>
+                                <input  id="star-2" value="2" type="radio" name="star"/>
+                                <label  for="star-2"></label>
+                                <input  id="star-1" value="1" type="radio" name="star"/>
+                                <label  for="star-1"></label>
+                            </div>
+
+                            <hr>
+                            <label for="comment" class="control-label">Your comment:</label>
+                            <input id="comment" name="comment" class="form-control" type="text" placeholder="Give us your comment" required>
+                            <label for="name" class="control-label">Your name:</label>
+                            <input id="name" name="name" class="form-control" type="text" placeholder="Optionally enter your name to stand a chance to win">
+                        </div>
+                        <div class="modal-footer">
+                            <div>
+                                <button type="submit" name="submit" class="btn btn-primary btn-lg btn-block">Send!</button>
+                            </div>
+
+                        </div>
+                    </form>
+                    <!-- End # Rate and Vote Form -->
+
+
+                </div>
+                <!-- End # DIV Form -->
+
+            </div>
+        </div>
+    </div>
+    <!-- END # Form -->
+
+    <!-- BEGIN Presenter 3 Form -->
+<div class="modal fade" id="vote-modal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header" align="center">
+                    <img class="img-circle" id="img_logo" src="img/BBD-SoftwareDevelopment-White.png">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <i class="fa fa-times" aria-hidden="true"></i>
+                    </button>
+                </div>
+
+                <!-- Begin # DIV Form -->
+                <div id="div-forms">
+
+                    <!-- Begin # Rate and Vote Form -->
+                    <form id="submit-form3" method="post" action="scripts/newComment.php">
+                        <div class="modal-body">
+
+                            <input type="hidden" id="Presenter3ID"  name="presenterid" value="" />
+
+
+                            <div class="stars">
+                                <input  id="star-5" value="5" type="radio" name="star"/>
+                                <label  for="star-5"></label>
+                                <input  id="star-4" value="4" type="radio" name="star"/>
+                                <label  for="star-4"></label>
+                                <input  id="star-3" value="3" type="radio" name="star"/>
+                                <label  for="star-3"></label>
+                                <input  id="star-2" value="2" type="radio" name="star"/>
+                                <label  for="star-2"></label>
+                                <input  id="star-1" value="1" type="radio" name="star"/>
+                                <label  for="star-1"></label>
+                            </div>
+
+                            <hr>
+                            <label for="comment" class="control-label">Your comment:</label>
+                            <input id="comment" name="comment" class="form-control" type="text" placeholder="Give us your comment" required>
+                            <label for="name" class="control-label">Your name:</label>
+                            <input id="name" name="name" class="form-control" type="text" placeholder="Optionally enter your name to stand a chance to win">
+                        </div>
+                        <div class="modal-footer">
+                            <div>
+                                <button type="submit" name="submit" class="btn btn-primary btn-lg btn-block">Send!</button>
+                            </div>
+
+                        </div>
+                    </form>
+                    <!-- End # Rate and Vote Form -->
+
+
+                </div>
+                <!-- End # DIV Form -->
+
+            </div>
+        </div>
+    </div>
     <!-- END # Form -->
 
 
@@ -215,12 +332,206 @@
     <script src="js/bootstrap.min.js"></script>
 
 
-    <!-- Script to Activate the Carousel -->
+
+
+
+
+   	<!-- Presenters -->
+
     <script>
-    $('.carousel').carousel({
-        interval: 5000 //changes the speed
-    })
+    xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            var tmpStr = this.responseText;
+            var newStr = tmpStr.substring(1, tmpStr .length-1);
+
+            var myObj = JSON.parse(newStr);
+            document.getElementById("Presenter1Name").innerHTML = myObj.HANDLE + " " + myObj.NAME;
+            document.getElementById("Presenter1Topic").innerHTML = myObj.TOPIC;
+            document.getElementById("Presenter1Date").innerHTML = myObj.START.split(" ")[0];
+            document.getElementById("Presenter1Time").innerHTML = myObj.START.split(" ")[1] + "\t-\t"+  myObj.END.split(" ")[1];
+            document.getElementById("Presenter1ID").value = myObj.PRESENTERID;
+        }
+    };
+    xmlhttp.open("GET", "scripts/newComment.php", true);
+    xmlhttp.send();
     </script>
+
+
+	<script>
+	xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            var tmpStr = this.responseText;
+            var newStr = tmpStr.substring(1, tmpStr .length-1);
+            var myObj = JSON.parse(newStr);
+            document.getElementById("Presenter1Name").innerHTML = myObj.HANDLE + " " + myObj.NAME;
+            document.getElementById("Presenter1Topic").innerHTML = myObj.TOPIC;
+            document.getElementById("Presenter1Date").innerHTML = myObj.START.split(" ")[0];
+            document.getElementById("Presenter1Time").innerHTML = myObj.START.split(" ")[1] + "\t-\t"+  myObj.END.split(" ")[1];
+            document.getElementById("Presenter1ID").value = myObj.PRESENTERID;
+        }
+    };
+    xmlhttp.open("GET", "scripts/Presenter1.php", true);
+    xmlhttp.send();
+	</script>
+
+	<script>
+	xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            var tmpStr = this.responseText;
+            var newStr = tmpStr.substring(1, tmpStr .length-1);
+            var myObj = JSON.parse(newStr);
+            document.getElementById("Presenter2Name").innerHTML = myObj.HANDLE + " " + myObj.NAME;
+            document.getElementById("Presenter2Topic").innerHTML = myObj.TOPIC;
+            document.getElementById("Presenter2Date").innerHTML = myObj.START.split(" ")[0];
+            document.getElementById("Presenter2Time").innerHTML = myObj.START.split(" ")[1] + "\t-\t"+  myObj.END.split(" ")[1];
+            document.getElementById("Presenter2ID").value = myObj.PRESENTERID;
+        }
+    };
+    xmlhttp.open("GET", "scripts/Presenter2.php", true);
+    xmlhttp.send();
+	</script>
+
+	<script>
+	xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            var tmpStr = this.responseText;
+            var newStr = tmpStr.substring(1, tmpStr .length-1);
+            var myObj = JSON.parse(newStr);
+            document.getElementById("Presenter3Name").innerHTML = myObj.HANDLE + " " + myObj.NAME;
+            document.getElementById("Presenter3Topic").innerHTML = myObj.TOPIC;
+            document.getElementById("Presenter3Date").innerHTML = myObj.START.split(" ")[0];
+            document.getElementById("Presenter3Time").innerHTML = myObj.START.split(" ")[1] + "\t-\t"+  myObj.END.split(" ")[1];
+            document.getElementById("Presenter3ID").value = myObj.PRESENTERID;
+        }
+    };
+    xmlhttp.open("GET", "scripts/Presenter3.php", true);
+    xmlhttp.send();
+	</script>
+
+    <script>
+    var val = 0;
+    var p1 = 0;
+    var p2 = 0;
+    var p3 = 0;
+
+    xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+
+        if (this.readyState == 4 && this.status == 200) {
+            var tmpStr = this.responseText;
+            var newStr = tmpStr.substring(1, tmpStr.length-1);
+            var myObj = JSON.parse(newStr);
+            var pid1 = myObj.PRESENTERID;
+             p1 = pid1;
+
+            xmlhttp1 = new XMLHttpRequest();
+            xmlhttp1.onreadystatechange = function() {
+              if (this.readyState == 4 && this.status == 200) {
+                 var tmpStr = this.responseText;
+                 var newStr = tmpStr.substring(1, tmpStr.length-1);
+                 var myObj = JSON.parse(newStr);
+                 var pid2 = myObj.PRESENTERID;
+                p2 = pid2;
+
+                    xmlhttp2 = new XMLHttpRequest();
+                    xmlhttp2.onreadystatechange = function() {
+                        if (this.readyState == 4 && this.status == 200) {
+                            var tmpStr = this.responseText;
+                            var newStr = tmpStr.substring(1, tmpStr.length-1);
+                            var myObj = JSON.parse(newStr);
+                            var pid3 = myObj.PRESENTERID;
+                            p3 = pid3;
+
+
+                            xmlhttp3 = new XMLHttpRequest();
+                            xmlhttp3.onreadystatechange = function() {
+                                if (this.readyState == 4 && this.status == 200) {
+                                    var tmpStr = this.responseText;
+                                    var newStr = tmpStr.substring(1, tmpStr.length-1);
+                                    var myObj = JSON.parse(newStr);
+                                    var current = myObj.PRESENTERID;
+                                    val = current;
+
+
+                                    if (val == p1) {
+                                        val=0;
+                                    } else if (val == p2) {
+                                        val =1;
+                                    } else {
+                                        val =2;
+                                    }
+
+                                    $('.carousel').carousel(val)
+                                }
+                              };
+                            xmlhttp3.open("GET", "scripts/currentPresenter.php", true);
+                            xmlhttp3.send();
+
+                        }
+                   };
+                   xmlhttp2.open("GET", "scripts/Presenter3.php", true);
+                   xmlhttp2.send();
+
+
+                 }
+              };
+           xmlhttp1.open("GET", "scripts/Presenter2.php", true);
+           xmlhttp1.send();
+
+
+
+            }
+        };
+    xmlhttp.open("GET", "scripts/Presenter1.php", true);
+    xmlhttp.send();
+    </script>
+
+    <script type='text/javascript'>
+    /* attach a submit handler to the form */
+    $("#formoid").submit(function(event) {
+
+      /* stop form from submitting normally */
+      event.preventDefault();
+
+      /* get the action attribute from the <form action=""> element */
+      var $form = $( this ),
+          url = $form.attr( 'action' );
+
+      /* Send the data using post with element id name and name2*/
+      var posting = $.post( url, { name: $('#name').val(), name2: $('#name2').val() } );
+
+      /* Alerts the results */
+      posting.done(function( data ) {
+        alert('success');
+      });
+    });
+</script>
+
+<script type='text/javascript'>
+    /* attach a submit handler to the form */
+    $("#submit-form3").submit(function(event) {
+
+      /* stop form from submitting normally */
+      event.preventDefault();
+
+      /* get the action attribute from the <form action=""> element */
+      var $form = $( this ),
+          url = $form.attr( 'action' );
+
+      /* Send the data using post with element id name and name2*/
+      var posting = $.post( url, { name: $('#name').val(), presenterid: $('#Presenter3ID').val(), star: $('#star').val(), comment: $('#comment').val() } );
+
+      /* Alerts the results */
+      posting.done(function( data ) {
+        alert('success');
+      });
+    });
+</script>
+
 
 </body>
 

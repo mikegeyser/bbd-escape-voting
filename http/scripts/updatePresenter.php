@@ -7,6 +7,8 @@
 	$start = $_REQUEST["start"];
 	$end = $_REQUEST["end"];
 
+	echo "$id $name $handle $topic $start $end";
+
 	if ($result = $conn->query("UPDATE PRESENTER SET NAME = '$name', HANDLE = '$handle', TOPIC = '$topic', START = '$start', END = '$end' WHERE PRESENTERID = $id")){
 		echo "Updated successfully";
 	}

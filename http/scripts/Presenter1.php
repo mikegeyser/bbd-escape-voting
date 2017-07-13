@@ -1,7 +1,6 @@
 <?php
 	$conn = new mysqli("127.0.0.1", "bbd", "password","Escape", 3306);
-
-	$sql = "SELECT PRESENTERID AS TIMESLOT, HANDLE, NAME, TOPIC, START, END FROM PRESENTER";
+	$sql = "SELECT NAME AS NAME, HANDLE, TOPIC, START, END, PRESENTERID FROM PRESENTER LIMIT 1";
 
 	$result = $conn->query($sql);
 	$output = array();
