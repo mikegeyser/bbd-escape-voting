@@ -2,7 +2,7 @@
 
 # Install Web files
 sudo mkdir -p /var/www
-sudo cp -fr web /var/www/html
+sudo cp -fr web/* /var/www/html/
 
 sudo cp -fr cgi-bin /var/www
 
