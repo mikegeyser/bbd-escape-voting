@@ -13,7 +13,7 @@
         while (true) {
             if (getCurrentState() === "TRUE") {
                 // Loop here
-              //echo shell_exec('sh /var/www/cgi-bin/camera.sh');
+              echo shell_exec('sh /var/www/cgi-bin/camera.sh');
                 $output = array();
                 $output = getrandomcomment();
 
