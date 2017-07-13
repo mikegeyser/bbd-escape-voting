@@ -1,15 +1,12 @@
 <?php
 	$conn = new mysqli("127.0.0.1", "bbd", "password","Escape", 3306);
-	$id = $_REQUEST["timeslot"];
-	$name = $_REQUEST["name"];
-	$handle = $_REQUEST["handle"];
+	$id = $_REQUEST["timeslotUpdate"];
 	$topic = $_REQUEST["topic"];
 	$start = $_REQUEST["start"];
 	$end = $_REQUEST["end"];
 
-	echo "$id $name $handle $topic $start $end";
 
-	if ($result = $conn->query("UPDATE PRESENTER SET NAME = '$name', HANDLE = '$handle', TOPIC = '$topic', START = '$start', END = '$end' WHERE PRESENTERID = $id")){
+	if ($result = $conn->query("UPDATE PRESENTER SET TOPIC = '$topic', START = '$start', END = '$end' WHERE PRESENTERID = $id")){
 		echo "Updated successfully";
 	}
 	else {echo "Error updating";}
