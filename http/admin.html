@@ -81,7 +81,7 @@
                 <div id="div-forms">
 
                     <!-- Begin # Add Presenter Form -->
-                    <form id="login-form" method="post" action="scripts/insertPresenter.php">
+                    <form id="add-form" method="post" action="scripts/insertPresenter.php">
                         <h1 style="text-align: center">Add Presenter</h1>
                         <div class="modal-body">
 
@@ -135,20 +135,20 @@
                 <div id="div-forms">
 
                     <!-- Begin # Add Presenter Form -->
-                    <form id="login-form" method="post" action="scripts/updatePresenter.php">
+                    <form id="update-form" method="post" action="scripts/updatePresenter.php">
                         <h1 style="text-align: center">Manage Presenters</h1>
 
 
                         <select id="presenterName" onchange = "updateValues()">
-                          <option id="Presenter1Name" value="" label=""></option>
-                          <option id="Presenter2Name" value=""></option>
+                          <option id="Presenter1Name" value="">Open Presenter Slot</option>
+                          <option id="Presenter2Name" value="">Open Presenter Slot</option>
                           <option id="Presenter3Name" value="">Open Presenter Slot</option>
                         </select>
 
 
                         <input type="hidden" id="name"  name="name" value="" />
                         <input type="hidden" id="handle"  name="handle" value="" />
-                        <input type="hidden" id="timeslot"  name="timeslot" value="" />
+                        <input type="hidden" id="timeslotUpdate"  name="timeslotUpdate" value="" />
 
                         <div class="modal-body">
 
@@ -182,6 +182,8 @@
         </div>
     </div>
     <!-- END # Form -->
+    
+
 
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
@@ -198,7 +200,7 @@
             var id = strUser.split(" ")[0];
             var handle = strUser.split(" ")[1];
             var name = strUser.split(" ")[2];
-            document.getElementById("timeslot").value = id.substring(0);
+            document.getElementById("timeslotUpdate").value = id.substring(0);
             document.getElementById("name").value = name;
             document.getElementById("handle").value = strUser;
 
@@ -220,7 +222,7 @@
             var myObj = JSON.parse(newStr);
             var name = myObj.NAME;
             document.getElementById("Presenter1Name").value = myObj.PRESENTERID +". " + myObj.HANDLE + " " + name;
-            document.getElementById("Presenter1Name").innerHTML = name;
+            document.getElementById("Presenter1Name").innerHTML = myObj.PRESENTERID +". " + myObj.HANDLE + " " + name;
 
       }
     };
@@ -236,6 +238,7 @@
             var newStr = tmpStr.substring(1, tmpStr .length-1);
             var myObj = JSON.parse(newStr);
             document.getElementById("Presenter2Name").value = myObj.PRESENTERID +". " + myObj.HANDLE + " " + myObj.NAME;
+            document.getElementById("Presenter2Name").innerHTML = myObj.PRESENTERID +". " + myObj.HANDLE + " " + myObj.NAME;
 
         }
     };
@@ -251,6 +254,7 @@
             var newStr = tmpStr.substring(1, tmpStr .length-1);
             var myObj = JSON.parse(newStr);
             document.getElementById("Presenter3Name").value = myObj.PRESENTERID +". " + myObj.HANDLE + " " + myObj.NAME;
+            document.getElementById("Presenter3Name").innerHTML = myObj.PRESENTERID +". " + myObj.HANDLE + " " + myObj.NAME;
 
         }
     };
