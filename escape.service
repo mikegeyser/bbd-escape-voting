@@ -2,7 +2,7 @@
 Description=BBD Escape Hotspot and PHP loop
 
 [Service]
-Type=oneshot
+Type=simple
 RemainAfterExit=yes
 ExecStart=/srv/http/evert/escape-2/control/web/initPHPLoop.sh
 ExecStart=/srv/http/evert/escape-2/control/web/startPHPLoop.sh
