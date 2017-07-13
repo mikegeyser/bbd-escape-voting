@@ -17,7 +17,6 @@ $controlDir/stopAP.sh &
 $controlDir/stopAP.sh &
 $webControlDir/stopPHPLoop.sh &
 killall -9 apache2 &
-systemctl restart appache2 &
 " >> $PWD/control/stop.sh
 sudo chmod 774 $PWD/control/stop.sh
 
