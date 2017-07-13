@@ -6,12 +6,6 @@
     // Get data from request
 
     
-
-	$consumerKey = $_REQUEST["consumerKey"]; 
-        $consumerSecret = $_REQUEST["consumerSecret"];
-        $accessToken = $_REQUEST["accessToken"];
-        $accessTokenSecret = $_REQUEST["accessTokenSecret"];
-
         $conn = new mysqli("127.0.0.1", "bbd", "password","Escape", 3306); 
 	$sql = "SELECT MAX(AVERAGE) AS RATING, TIMESLOT,HANDLE, NAME, TOPIC FROM
                 (SELECT AVG(RATING) AS AVERAGE,  TIMESLOT, HANDLE, NAME, TOPIC FROM VOTES LEFT JOIN PRESENTER ON PRESENTERID = TIMESLOT)
@@ -31,5 +25,7 @@
 	fclose($myfile);
 
     tweetMessage("The winner of $track is $name: $handle, with the topic $topic  #BBDEscape", null);
+    
+
 
 ?>

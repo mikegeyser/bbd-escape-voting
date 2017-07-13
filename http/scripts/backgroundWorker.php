@@ -1,10 +1,12 @@
 <?php
 
-    require_once 'init.php';
-
+    require_once ('init.php)';
+     require_once('twitterFunctions.php');
+    require 'db.php'
+                  
     // This script will run jobs in the background.
-    // Only only instance of this script should run!
-
+    // Only one instance of this script should run!
+  
 
     mainLoop();
     function mainLoop() {
@@ -13,6 +15,20 @@
         while (true) {
             if (getCurrentState() === "TRUE") {
                 // Loop here
+              echo shell_exec('sh /var/www/cgi-bin/camera.sh');
+                $output = array(); 
+                $output = getrandomcomment();
+                if(sizeof($output) != 0){
+                      
+                    $handle = $output[0]["HANDLE"];
+                    $comment = $output[0]["COMMENT"];
+                    $commentid= $output[0]["COMMENTID"];
+                    
+                    $result= tweetmessage("$comment - #BBDEscape",'/home/pi/Desktop/image.jpg');
+                }else{
+                    $result= tweetmessage("#BBDEscape",'/home/pi/Desktop/image.jpg'); 
+                }
+                
                 Logger::debug('Loop');
             } else if (getCurrentState() === "DIE") {
                 Logger::debug('Killing background thread');
@@ -38,7 +54,9 @@
     }
 
     function takePhotoToBuffer() {
-
+        
+        echo shell_exec('sh /var/www/cgi-bin/camera.sh');
+        
     }
 
     function popPhoto() {
@@ -46,7 +64,15 @@
     }
 
     function getRandomComment() {
+        $sql = "SELECT TOP 1 COMMENTID, COMMENT, HANDLE FROM COMMENTS LEFT JOIN PRESENTER ON PRESENTER = PRESENTERID WHERE TWEETED = 0 AND TIME > (NOW() - interval 10 minute)  ORDER BY TIME DESC";
 
+        	$result = $conn->query($sql);
+	        $output = array();
+       		while($row = $result->fetch_assoc()){
+                	$output[]=$row;
+            }
+  
+        return $output;
     }
 
     function getCurrentState() {

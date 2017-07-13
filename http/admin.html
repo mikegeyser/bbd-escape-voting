@@ -56,7 +56,7 @@
 
 /* Add Animation */
 @-webkit-keyframes animatetop {
-    from {top:-300px; opacity:0} 
+    from {top:-300px; opacity:0}
     to {top:0; opacity:1}
 }
 
@@ -98,7 +98,7 @@
     color: white;
 }
 </style>
-    
+
 <style>
 .dropbtn {
     background-color: #337ab7;
@@ -176,8 +176,7 @@
                                                   data-toggle="modal" data-target="#deletepresenter-modal">Delete Presenters</a></p>
             </div>
             <div class="col-lg-12">
-                <p class="text-center"><a href="#" class="btn btn-primary btn-lg" role="button"
-                                                  data-toggle="modal" data-target="#winner-modal">Tweet Winner</a></p>
+                <p class="text-center"; ><a onclick="Tweet();" href="#" class="btn btn-primary btn-lg" >Tweet Winner</a></p>
             </div>
             <div class="col-lg-12">
                 <p class="text-center"><a href="" class="btn btn-primary btn-lg" role="button" onclick="LuckyDraw();">Lucky Draw</a></p>
@@ -307,7 +306,7 @@
         </div>
     </div>
     <!-- END # Form -->
-    
+
 	<!-- BEGIN DELETE Presenter  Form -->
 	<div class="modal fade" id="deletepresenter-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
         <div class="modal-dialog">
@@ -321,7 +320,7 @@
 
                 <!-- Begin # DIV Form -->
                 <div id="div-forms" >
-                
+
                     <!-- Begin # Add Presenter Form -->
                     <form id="login-form">
                         <h1 style="text-align: center">Delete Presenter</h1>
@@ -352,13 +351,13 @@
             			</div>
                     </form>
                     <!-- End # Add Presenter Form -->
-                    
+
                 </div>
                 <!-- End # DIV Form -->
 
             </div>
         </div>
-		
+
     </div>
 	<!-- The Popup Modal -->
 	<div id="popid" class="popup">
@@ -389,7 +388,20 @@
             return false;
         }
     </script>
-    
+
+
+    <script type= "text/javascript">
+
+        function Tweet(){
+            $.get("scripts/tweetWinner.php");
+            return false;
+
+        }
+    </script>
+
+
+    <!-- ADD Presenters Popup -->
+
 	<!-- DELETE Presenters Scripts -->
 	<script>
     function delete1() {
@@ -405,7 +417,7 @@
     // Get the <span> element that closes the modal
     var span = document.getElementsByClassName("popclose")[0];
 
-    // When the user clicks the button, open the modal 
+    // When the user clicks the button, open the modal
     btn.onclick = function() {
         modal.style.display = "block";
         delete1();
@@ -425,7 +437,7 @@
         }
     }
     </script>
-    
+
     <script>
     function delete2() {
         $.get("scripts/deletePresenter2.php");
@@ -440,7 +452,7 @@
     // Get the <span> element that closes the modal
     var span = document.getElementsByClassName("popclose")[0];
 
-    // When the user clicks the button, open the modal 
+    // When the user clicks the button, open the modal
     btn2.onclick = function() {
         modal.style.display = "block";
         delete2();
@@ -460,7 +472,7 @@
         }
     }
     </script>
-    
+
     <script type="text/javascript">
     function delete3() {
         $.get("scripts/deletePresenter3.php");
@@ -475,7 +487,7 @@
     // Get the <span> element that closes the modal
     var span = document.getElementsByClassName("popclose")[0];
 
-    // When the user clicks the button, open the modal 
+    // When the user clicks the button, open the modal
     btn2.onclick = function() {
         modal.style.display = "block";
         delete3();
@@ -495,7 +507,7 @@
         }
     }
     </script>
-    
+
 	<!-- Persenters -->
 	<script>
 	xmlhttp = new XMLHttpRequest();
@@ -510,6 +522,7 @@
     xmlhttp.open("GET", "scripts/Presenter1.php", true);
     xmlhttp.send();
 	</script>
+
 
 	<script>
 	xmlhttp = new XMLHttpRequest();
@@ -539,7 +552,7 @@
     xmlhttp.send();
 	</script>
 	<!-- END -->
-	
+
     <script >
         function updateValues()
         {
