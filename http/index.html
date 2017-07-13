@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<script src="js/swipe/jquery.mobile-1.4.5.min.js"></script>
     
 <head>
 
@@ -374,13 +373,15 @@
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
     
+    <script src="js/swipe/jquery.mobile-1.4.5.min.js"></script>
+                
     <script>
     $(document).ready(function() {
         $("#myCarousel").swiperight(function() {
-            $(this).carousel('prev');
+            $("#myCarousel").carousel('prev');
         });
         $("#myCarousel").swipeleft(function() {
-            $(this).carousel('next');
+            $("#myCarousel").carousel('next');
         });
     });
     </script>
