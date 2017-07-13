@@ -1,5 +1,13 @@
 <?php
-	$consumerKey = $_REQUEST["consumerKey"];
+
+    require_once 'init.php';
+    require_once 'twitterFunctions.php';
+
+    // Get data from request
+
+    
+
+	$consumerKey = $_REQUEST["consumerKey"]; 
         $consumerSecret = $_REQUEST["consumerSecret"];
         $accessToken = $_REQUEST["accessToken"];
         $accessTokenSecret = $_REQUEST["accessTokenSecret"];
@@ -22,19 +30,6 @@
 	$track = fread($myfile, filesize("name.txt"));
 	fclose($myfile);
 
-        require_once('/var/www/html/scripts/codebird-php-develop/src/codebird.php'); 
+    tweetMessage("The winner of $track is $name: $handle, with the topic $topic  #BBDEscape", null);
 
-        \Codebird\Codebird::setConsumerKey("$consumerKey", "$consumerSecret");
-        $cb = \Codebird\Codebird::getInstance();
-        $cb->setToken("$accessToken", "$accessTokenSecret");
-	$cb->setConnectionTimeout(10000);
-	$cb->setTimeout(15000);
-
-        $params = array(
-                'status' => "The winner of $track is $name: $handle, with the topic $topic  #BBDEscape",
-        );
-        $reply = $cb->statuses_update($params);
-
-        $status = $reply->httpstatus; 
-  	echo "HTTP Response Code: $status";
 ?>
