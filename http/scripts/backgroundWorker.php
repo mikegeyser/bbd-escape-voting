@@ -1,12 +1,15 @@
 <?php
 
-    require_once ('init.php)';
-     require_once('twitterFunctions.php');
-    require 'db.php'
-                  
+    require_once 'init.php';
+    require_once 'twitterFunctions.php';
+
+    // if (!$_REQUEST['key'] === 'YesItIsAStaticKey.Sorry') {
+    //     die('Bad key');
+    // }
+
     // This script will run jobs in the background.
     // Only one instance of this script should run!
-  
+
 
     mainLoop();
     function mainLoop() {
@@ -15,20 +18,33 @@
         while (true) {
             if (getCurrentState() === "TRUE") {
                 // Loop here
-              echo shell_exec('sh /var/www/cgi-bin/camera.sh');
-                $output = array(); 
+              //echo shell_exec('sh /var/www/cgi-bin/camera.sh');
+                $output = array();
                 $output = getrandomcomment();
+
+                $result = -1;
+                $commentid = -1;
+
                 if(sizeof($output) != 0){
-                      
+
                     $handle = $output[0]["HANDLE"];
                     $comment = $output[0]["COMMENT"];
                     $commentid= $output[0]["COMMENTID"];
-                    
-                    $result= tweetmessage("$comment - #BBDEscape",'/home/pi/Desktop/image.jpg');
+
+                    //$result= tweetmessage("$comment - #BBDEscape",'/home/pi/Desktop/image.jpg');
+                    Logger::debug('Tweeting...'.$comment.PHP_EOL);
+
+                    $result = 0;
                 }else{
-                    $result= tweetmessage("#BBDEscape",'/home/pi/Desktop/image.jpg'); 
+                    //$result= tweetmessage("#BBDEscape",'/home/pi/Desktop/image.jpg');
+                    $result = -1;
+                    Logger::debug('No comments at thsi moment...');
                 }
-                
+
+                if ($result == 0) {
+                    setTweetedBit($commentid);
+                }
+
                 Logger::debug('Loop');
             } else if (getCurrentState() === "DIE") {
                 Logger::debug('Killing background thread');
@@ -48,15 +64,15 @@
             sleep for 1 minute
              */
 
-            sleep(60);
+            sleep(5);
         }
 
     }
 
     function takePhotoToBuffer() {
-        
+
         echo shell_exec('sh /var/www/cgi-bin/camera.sh');
-        
+
     }
 
     function popPhoto() {
@@ -64,15 +80,45 @@
     }
 
     function getRandomComment() {
-        $sql = "SELECT TOP 1 COMMENTID, COMMENT, HANDLE FROM COMMENTS LEFT JOIN PRESENTER ON PRESENTER = PRESENTERID WHERE TWEETED = 0 AND TIME > (NOW() - interval 10 minute)  ORDER BY TIME DESC";
+        require 'db.php';
+        $sql = "SELECT A.COMMENTID, A.COMMENT, B.HANDLE FROM COMMENTS as A
+        LEFT JOIN PRESENTER as B
+        ON PRESENTER = PRESENTERID
+        WHERE TWEETED = 0 AND TIME > (NOW() - interval 10 minute)
+        ORDER BY TIME DESC LIMIT 1";
 
         	$result = $conn->query($sql);
+
+            if (!$result) {
+                Logger::error($conn->error);
+                die('error in sql');
+            }
+
+
 	        $output = array();
        		while($row = $result->fetch_assoc()){
                 	$output[]=$row;
             }
-  
+
+        $conn->close();
         return $output;
+    }
+
+    function setTweetedBit($commentid) {
+
+        require 'db.php';
+
+        $sql = "UPDATE COMMENTS SET TWEETED='1' WHERE COMMENTID=$commentid";
+
+        if ($conn->query($sql) === TRUE) {
+            //echo "Thread signalled succesfully";
+            Logger::debug('Set tweeted bit on commentid '.$commentid);
+        } else {
+            echo "Error updating record: " . $conn->error;
+            //Logger::error("Error updating record: " . $conn->error);
+        }
+
+        $conn->close();
     }
 
     function getCurrentState() {
