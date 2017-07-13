@@ -17,6 +17,7 @@
     <!-- Custom CSS -->
     <link href="css/half-slider.css" rel="stylesheet">
     <link href="css/modal.css" rel="stylesheet">
+
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
 
@@ -46,7 +47,11 @@
         <div class="row">
             <div class="col-lg-12">
                 <p class="text-center"><a href="#" class="btn btn-primary btn-lg" role="button" 
-                                                  data-toggle="modal" data-target="#presenter-modal">Manage Presenters</a></p>
+                                                  data-toggle="modal" data-target="#addpresenter-modal">Add Presenter</a></p>
+            </div>
+            <div class="col-lg-12">
+                <p class="text-center"><a href="#" class="btn btn-primary btn-lg" role="button" 
+                                                  data-toggle="modal" data-target="#managepresenter-modal">Manage Presenters</a></p>
             </div>
             <div class="col-lg-12">
                 <p class="text-center"><a href="#" class="btn btn-primary btn-lg" role="button" 
@@ -58,32 +63,33 @@
 
     </div>
     <!-- /.container -->
-    
- <!-- BEGIN # MODAL  -->
-<div class="modal fade" id="presenter-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-    	<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header" align="center">
-                    <img class="img-circle" id="img_logo" src="img/Escape-Black.png">
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-						<i class="fa fa-times" aria-hidden="true"></i>
-					</button>
-				</div>
+
+
+
+    <!-- BEGIN Add Presenter  Form -->
+<div class="modal fade" id="addpresenter-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header" align="center">
+                    <img class="img-circle" id="img_logo" src="img/BBD-SoftwareDevelopment-White.png">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <i class="fa fa-times" aria-hidden="true"></i>
+                    </button>
+                </div>
                 
                 <!-- Begin # DIV Form -->
-                <div id="div-forms" >
+                <div id="div-forms">
                 
                     <!-- Begin # Add Presenter Form -->
                     <form id="login-form" method="post" action="scripts/insertPresenter.php">
                         <h1 style="text-align: center">Add Presenter</h1>
-		                <div class="modal-body">
-				    		<div id="div-login-msg">
-                            </div>
-                            <label for="handle" class="control-label">Handle:</label>
-				    		<input id="handle" name="handle" class="form-control" type="text" required>
+                        <div class="modal-body">
+
+                            <label for="handle" class="control-label">Handle</label>
+                            <input id="handle" name="handle" class="form-control" type="text" required>
                             
                             <label for="name" class="control-label">Name</label>
-				    		<input id="name" name="name" class="form-control" type="text" required>
+                            <input id="name" name="name" class="form-control" type="text" required>
                             
                             <label for="topic" class="control-label">Topic</label>
                             <input id="topic" name="topic" class="form-control" type="text" required>
@@ -93,89 +99,165 @@
                             
                             <label for="end" class="control-label">End Time and Date</label>
                             <input id="end" name="end" class="form-control" type="datetime-local" required>
-        		    	</div>
-				        <div class="modal-footer">
+                        </div>
+                        
+                        <div class="modal-footer">
+                            
                             <div>
-                                <button type="submit" class="btn btn-primary btn-lg btn-block">Submit</button>
+                                <button type="submit" name="submit" class="btn btn-primary btn-lg btn-block">Add!</button>
                             </div>
-				    	    <div>
-                                <button id="login_lost_btn" type="button" class="btn btn-link">View and Delete Presenters</button>
-                                <button id="login_register_btn" type="button" class="btn btn-link">Edit Presenters</button>
-                            </div>
-				        </div>
+
+                        </div>
                     </form>
                     <!-- End # Add Presenter Form -->
                     
-                    <!-- Begin | View and Delete Form -->
-                    <form id="lost-form" style="display:none;">
-            		    <div class="modal-body">
-		    				<div id="div-register-msg">
-                                <div id="icon-register-msg" class="glyphicon glyphicon-chevron-right"></div>
-                                <span id="text-register-msg">Register an account.</span>
-                            </div>
-		    				<input id="register_username" class="form-control" type="text" placeholder="Username (type ERROR for error effect)" required>
-                            <input id="register_email" class="form-control" type="text" placeholder="E-Mail" required>
-                            <input id="register_password" class="form-control" type="password" placeholder="Password" required>
-            			</div>
-		    		    <div class="modal-footer">
-                            <div>
-                                <button type="submit" class="btn btn-primary btn-lg btn-block">Register</button>
-                            </div>
-                            <div>
-                                <button id="register_login_btn" type="button" class="btn btn-link">Log In</button>
-                                <button id="register_lost_btn" type="button" class="btn btn-link">Lost Password?</button>
-                            </div>
-		    		    </div>
-                    </form>
-                    <!-- End | Edit Form -->
-                    
-                    
-                    <!-- Begin | Edit Form -->
-                    <form id="register-form" style="display:none;">
-            		    <div class="modal-body">
-		    				<div id="div-register-msg">
-                                <div id="icon-register-msg" class="glyphicon glyphicon-chevron-right"></div>
-                                <span id="text-register-msg">Register an account.</span>
-                            </div>
-		    				<input id="register_username" class="form-control" type="text" placeholder="Username (type ERROR for error effect)" required>
-                            <input id="register_email" class="form-control" type="text" placeholder="E-Mail" required>
-                            <input id="register_password" class="form-control" type="password" placeholder="Password" required>
-            			</div>
-		    		    <div class="modal-footer">
-                            <div>
-                                <button type="submit" class="btn btn-primary btn-lg btn-block">Register</button>
-                            </div>
-                            <div>
-                                <button id="register_login_btn" type="button" class="btn btn-link">Log In</button>
-                                <button id="register_lost_btn" type="button" class="btn btn-link">Lost Password?</button>
-                            </div>
-		    		    </div>
-                    </form>
-                    <!-- End | Edit Form -->
                     
                 </div>
                 <!-- End # DIV Form -->
                 
-			</div>
-		</div>
-	</div>
-    <!-- END # MODAL LOGIN -->
+            </div>
+        </div>
+    </div>
+    <!-- END # Form -->
+
+    <!-- BEGIN Manage Presenter  Form -->
+<div class="modal fade" id="managepresenter-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header" align="center">
+                    <img class="img-circle" id="img_logo" src="img/BBD-SoftwareDevelopment-White.png">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <i class="fa fa-times" aria-hidden="true"></i>
+                    </button>
+                </div>
+                
+                <!-- Begin # DIV Form -->
+                <div id="div-forms">
+                
+                    <!-- Begin # Add Presenter Form -->
+                    <form id="login-form" method="post" action="scripts/updatePresenter.php">
+                        <h1 style="text-align: center">Manage Presenters</h1>
+
+                       
+                        <select id="presenterName" onchange = "updateValues()">
+                          <option id="Presenter1Name" value="" label=""></option>
+                          <option id="Presenter2Name" value=""></option>
+                          <option id="Presenter3Name" value="">Open Presenter Slot</option>
+                        </select>
+
+
+                        <input type="hidden" id="name"  name="name" value="" />
+                        <input type="hidden" id="handle"  name="handle" value="" />
+                        <input type="hidden" id="timeslot"  name="timeslot" value="" />
+
+                        <div class="modal-body">
+                            
+                            <label for="topic" class="control-label">Topic</label>
+                            <input id="topic" value = "" name="topic" class="form-control" type="text" required>
+                            
+                            <label for="start" class="control-label">Start Time and Date</label>
+                            <input id="start" value = "" name="start" class="form-control" type="datetime-local" required>
+                            
+                            <label for="end" class="control-label">End Time and Date</label>
+                            <input id="end" value = "" name="end" class="form-control" type="datetime-local" required>
+                        </div>
+
+                   
+                        
+                        <div class="modal-footer">
+                            
+                            <div>
+                                <button type="submit" name="submit" class="btn btn-primary btn-lg btn-block">Update Presenter!</button>
+                            </div>
+
+                        </div>
+                    </form>
+                    <!-- End # Add Presenter Form -->
+                    
+                    
+                </div>
+                <!-- End # DIV Form -->
+                
+            </div>
+        </div>
+    </div>
+    <!-- END # Form -->
 
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
-    
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/modal.js"></script>
 
-    <!-- Script to Activate the Carousel -->
-    <script>
-    $('.carousel').carousel({
-        interval: 5000 //changes the speed
-    })
+ 
+    <script >
+        function updateValues()
+        {
+            var e = document.getElementById("presenterName");
+            var strUser = e.options[e.selectedIndex].value;
+            var id = strUser.split(" ")[0];
+            var handle = strUser.split(" ")[1];
+            var name = strUser.split(" ")[2];
+            document.getElementById("timeslot").value = id.substring(0);
+            document.getElementById("name").value = name;
+            document.getElementById("handle").value = strUser;
+
+        }
     </script>
+
+    <script type="text/javascript">
+        $("#presenterName").change(function(){
+    $("#presenterName option:selected").text($("#presenterName").val());
+});
+    </script>
+ 
+    <script>
+    xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            var tmpStr = this.responseText;
+            var newStr = tmpStr.substring(1, tmpStr .length-1);
+            var myObj = JSON.parse(newStr);
+            var name = myObj.NAME;
+            document.getElementById("Presenter1Name").value = myObj.PRESENTERID +". " + myObj.HANDLE + " " + name;
+            document.getElementById("Presenter1Name").innerHTML = name;
+            
+      }
+    };
+    xmlhttp.open("GET", "scripts/Presenter1.php", true);
+    xmlhttp.send();
+    </script>
+    
+    <script>
+    xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            var tmpStr = this.responseText;
+            var newStr = tmpStr.substring(1, tmpStr .length-1);
+            var myObj = JSON.parse(newStr);
+            document.getElementById("Presenter2Name").value = myObj.PRESENTERID +". " + myObj.HANDLE + " " + myObj.NAME;
+
+        }
+    };
+    xmlhttp.open("GET", "scripts/Presenter2.php", true);
+    xmlhttp.send();
+    </script>
+    
+    <script>
+    xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            var tmpStr = this.responseText;
+            var newStr = tmpStr.substring(1, tmpStr .length-1);
+            var myObj = JSON.parse(newStr);
+            document.getElementById("Presenter3Name").value = myObj.PRESENTERID +". " + myObj.HANDLE + " " + myObj.NAME;
+
+        }
+    };
+    xmlhttp.open("GET", "scripts/Presenter3.php", true);
+    xmlhttp.send();
+    </script>
+
 
 </body>
 
