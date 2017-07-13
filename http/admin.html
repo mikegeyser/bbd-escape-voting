@@ -54,9 +54,9 @@
                                                   data-toggle="modal" data-target="#managepresenter-modal">Manage Presenters</a></p>
             </div>
             <div class="col-lg-12">
-                <p class="text-center"><a href="#" class="btn btn-primary btn-lg" role="button"
-                                                  data-toggle="modal" data-target="#winner-modal">Tweet Winner</a></p>
+                <p class="text-center"; ><a onclick="Tweet();" href="#" class="btn btn-primary btn-lg" >Tweet Winner</a></p>
             </div>
+            
         </div>
 
         <hr>
@@ -190,7 +190,15 @@
 
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
-
+    
+    <script type= "text/javascript">
+        
+        function Tweet(){
+            $.get("scripts/tweetWinner.php");
+            return false;
+            
+        }
+    </script>
 
     <script >
         function updateValues()
