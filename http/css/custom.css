@@ -7,3 +7,8 @@ header#myCarousel.carousel.slide
 {
     height: 450px;
 }
+
+img#img_logo.img-circle
+{
+    border-radius: 0;
+}
