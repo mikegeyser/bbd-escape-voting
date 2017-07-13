@@ -8,5 +8,6 @@ sudo install-scripts/install-web-config.sh
 sudo install-scripts/setup-camera.sh
 sudo install-scripts/createDB.sh
 sudo install-scripts/install-service.sh
+sudo install-scripts/patch.sh
 
 sudo reboot
