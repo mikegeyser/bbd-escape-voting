@@ -154,7 +154,7 @@
 
                             <div class="stars">
                             
-                                    <input class="star star-5" id="star-5A" value="5" type="radio" name="star"/>
+                                    <input class="star star-5" id="star-5A" value="5" type="radio" name="star" required/>
                                   
                                     <label class="star star-5" for="star-5A"></label>
                                 
@@ -223,7 +223,7 @@
 
                             <div  class="stars">
                              
-                                    <input class="star star-5" id="star-5B" value="5" type="radio" name="star"/>
+                                    <input class="star star-5" id="star-5B" value="5" type="radio" name="star" required/>
                                     
                                     <label class="star star-5" for="star-5B"></label>
                                 
@@ -294,7 +294,7 @@
 
                             <div class="stars">
                             
-                                    <input class="star star-5" id="star-5C" value="5" type="radio" name="star"/>
+                                    <input class="star star-5" id="star-5C" value="5" type="radio" name="star" required/>
                                   
                                     <label class="star star-5" for="star-5C"></label>
                                 
@@ -548,6 +548,16 @@
             var comment = $('#comment1').val();
             var id = $("#Presenter1ID").val();
             var rating = $('input[name=star]:checked').val();
+            if (comment == '')
+                {
+                    return false;
+                }
+             if (typeof rating != 'string')
+                {
+                    $('.statusMsg').html('<span style="color:red;">Please rate the speaker.</span>');
+                    return false;
+                }
+            
             $.ajax(
                     {
                         type:'POST',
@@ -565,6 +575,8 @@
                     $('#comment1').val('');
                     $('input[name="star"]').attr('checked', false);
                     $('.statusMsg').html('<span style="color:green;">Thanks for the input! Check the BBD Twitter page to see if your comment features!</p>');
+                    $('#vote-modal1').modal('toggle');
+                    
                 }else{
                     $('.statusMsg').html('<span style="color:red;">Some problem occurred, please try again later.</span>');
                 }
@@ -583,6 +595,15 @@
             var comment = $('#comment2').val();
             var id = $("#Presenter2ID").val();
             var rating = $('input[name=star]:checked').val();
+            if (comment == '')
+                {
+                    return false;
+                }
+             if (typeof rating != 'string')
+                {
+                    $('.statusMsg').html('<span style="color:red;">Please rate the speaker.</span>');
+                    return false;
+                }
             $.ajax(
                     {
                         type:'POST',
@@ -600,6 +621,7 @@
                     $('#comment2').val('');
                     $('input[name="star"]').attr('checked', false);
                     $('.statusMsg').html('<span style="color:green;">Thanks for the input! Check the BBD Twitter page to see if your comment features!</p>');
+                    $('#vote-modal2').modal('toggle');
                 }else{
                     $('.statusMsg').html('<span style="color:red;">Some problem occurred, please try again later.</span>');
                 }
@@ -616,6 +638,15 @@
             var comment = $('#comment3').val();
             var id = $("#Presenter3ID").val();
             var rating = $('input[name=star]:checked').val();
+            if (comment == '')
+                {
+                    return false;
+                }
+             if (typeof rating != 'string')
+                {
+                    $('.statusMsg').html('<span style="color:red;">Please rate the speaker.</span>');
+                    return false;
+                }
             $.ajax(
                     {
                         type:'POST',
@@ -633,6 +664,7 @@
                     $('#comment3').val('');
                     $('input[name="star"]').attr('checked', false);
                     $('.statusMsg').html('<span style="color:green;">Thanks for the input! Check the BBD Twitter page to see if your comment features!</p>');
+                    $('#vote-modal3').modal('toggle');
                 }else{
                     $('.statusMsg').html('<span style="color:red;">Some problem occurred, please try again later.</span>');
                 }
