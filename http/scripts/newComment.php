@@ -52,10 +52,9 @@
             {//echo "Error capturing comment";
                 $responseArray = array('type' => 'danger', 'message' => $error);
             }
+            setcookie($timeslot,"1", time() + (86400 * 300), "/"); // 86400 = 1 day
         }
 
-
-        setcookie($timeslot,"1", time() + (86400 * 300), "/"); // 86400 = 1 day
 
     }
     catch (\Exception $e)
