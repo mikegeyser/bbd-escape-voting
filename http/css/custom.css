@@ -2,3 +2,12 @@
 {
     margin-top: 30px;
 }
+
+header#myCarousel.carousel.slide
+{
+    height: 400px;
+}
+
+div.col-lg-12{
+    text-align: center;
+}
