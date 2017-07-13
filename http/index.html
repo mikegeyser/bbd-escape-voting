@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+    
 <head>
 
     <meta charset="utf-8">
@@ -18,22 +18,20 @@
     <!-- Custom CSS -->
     <link href="css/half-slider.css" rel="stylesheet">
     <link href="css/popup.css" rel="stylesheet">
+    <link href="css/custom.css" rel="stylesheet">
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
 
 </head>
 
-<body>
+<body background="img/Escape-Screen.jpg">
 
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                </button>
+          
                 <a class="navbar-brand" href="#"><img src="img/BBD-SoftwareDevelopment-White.png"></a>
             </div>
 
@@ -76,7 +74,7 @@
     <!-- Half Page Image Background Carousel Header -->
     <header id="myCarousel" class="carousel slide">
         <!-- Indicators -->
-        <ol class="carousel-indicators">
+        <ol style = "position: inline; margin-top: 5px" class="carousel-indicators">
             <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
             <li data-target="#myCarousel" data-slide-to="1"></li>
             <li data-target="#myCarousel" data-slide-to="2"></li>
@@ -137,7 +135,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header" align="center">
-                    <img class="img-circle" id="img_logo" src="img/BBD-SoftwareDevelopment-White.png">
+                    <img class="img-circle" id="img_logo" src="img/BBD-SoftwareDevelopment-Black.png">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <i class="fa fa-times" aria-hidden="true"></i>
                     </button>
@@ -156,7 +154,7 @@
 
                             <div class="stars">
                             
-                                    <input class="star star-5" id="star-5A" value="5" type="radio" name="star"/>
+                                    <input class="star star-5" id="star-5A" value="5" type="radio" name="star" required/>
                                   
                                     <label class="star star-5" for="star-5A"></label>
                                 
@@ -174,7 +172,7 @@
                                 
                                     <input class="star star-1" id="star-1A" value="1" type="radio" name="star"/>
                                 
-                                    <label class="star star-1" for="star-1A"></label>
+                                    <label style="position:fixed; left: 20px" class="star star-1" for="star-1A"></label>
                             </div>
 
                             <hr>
@@ -206,7 +204,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header" align="center">
-                    <img class="img-circle" id="img_logo" src="img/BBD-SoftwareDevelopment-White.png">
+                    <img class="img-circle" id="img_logo" src="img/BBD-SoftwareDevelopment-Black.png">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <i class="fa fa-times" aria-hidden="true"></i>
                     </button>
@@ -225,7 +223,7 @@
 
                             <div  class="stars">
                              
-                                    <input class="star star-5" id="star-5B" value="5" type="radio" name="star"/>
+                                    <input class="star star-5" id="star-5B" value="5" type="radio" name="star" required/>
                                     
                                     <label class="star star-5" for="star-5B"></label>
                                 
@@ -243,7 +241,7 @@
                                 
                                     <input class="star star-1" id="star-1B" value="1" type="radio" name="star"/>
                                 
-                                    <label class="star star-1" for="star-1B"></label>
+                                    <label style="position:fixed; left: 20px" class="star star-1" for="star-1B"></label>
                                 
                             </div>
 
@@ -276,7 +274,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header" align="center">
-                    <img class="img-circle" id="img_logo" src="img/BBD-SoftwareDevelopment-White.png">
+                    <img class="img-circle" id="img_logo" src="img/BBD-SoftwareDevelopment-Black.png">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <i class="fa fa-times" aria-hidden="true"></i>
                     </button>
@@ -296,7 +294,7 @@
 
                             <div class="stars">
                             
-                                    <input class="star star-5" id="star-5C" value="5" type="radio" name="star"/>
+                                    <input class="star star-5" id="star-5C" value="5" type="radio" name="star" required/>
                                   
                                     <label class="star star-5" for="star-5C"></label>
                                 
@@ -314,7 +312,7 @@
                                 
                                     <input class="star star-1" id="star-1C" value="1" type="radio" name="star"/>
                                 
-                                    <label class="star star-1" for="star-1C"></label>
+                                    <label style="position:fixed; left: 20px" class="star star-1" for="star-1C"></label>
                             </div>
 
                             <hr>
@@ -344,7 +342,7 @@
 
 
     <!-- Page Content -->
-    <div class="container">
+    <div id = "explain" class="container">
 
         <div class="row">
             <div class="col-lg-12">
@@ -374,11 +372,19 @@
 
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
-
-
-
-
-
+    
+    <script src="js/swipe/jquery.mobile-1.4.5.min.js"></script>
+                
+    <script>
+    $(document).ready(function() {
+        $("#myCarousel").swiperight(function() {
+            $("#myCarousel").carousel('prev');
+        });
+        $("#myCarousel").swipeleft(function() {
+            $("#myCarousel").carousel('next');
+        });
+    });
+    </script>
 
    	<!-- Presenters -->
 
@@ -542,6 +548,16 @@
             var comment = $('#comment1').val();
             var id = $("#Presenter1ID").val();
             var rating = $('input[name=star]:checked').val();
+            if (comment == '')
+                {
+                    return false;
+                }
+             if (typeof rating != 'string')
+                {
+                    $('.statusMsg').html('<span style="color:red;">Please rate the speaker.</span>');
+                    return false;
+                }
+            
             $.ajax(
                     {
                         type:'POST',
@@ -559,6 +575,8 @@
                     $('#comment1').val('');
                     $('input[name="star"]').attr('checked', false);
                     $('.statusMsg').html('<span style="color:green;">Thanks for the input! Check the BBD Twitter page to see if your comment features!</p>');
+                    $('#vote-modal1').modal('toggle');
+                    
                 }else{
                     $('.statusMsg').html('<span style="color:red;">Some problem occurred, please try again later.</span>');
                 }
@@ -577,6 +595,15 @@
             var comment = $('#comment2').val();
             var id = $("#Presenter2ID").val();
             var rating = $('input[name=star]:checked').val();
+            if (comment == '')
+                {
+                    return false;
+                }
+             if (typeof rating != 'string')
+                {
+                    $('.statusMsg').html('<span style="color:red;">Please rate the speaker.</span>');
+                    return false;
+                }
             $.ajax(
                     {
                         type:'POST',
@@ -594,6 +621,7 @@
                     $('#comment2').val('');
                     $('input[name="star"]').attr('checked', false);
                     $('.statusMsg').html('<span style="color:green;">Thanks for the input! Check the BBD Twitter page to see if your comment features!</p>');
+                    $('#vote-modal2').modal('toggle');
                 }else{
                     $('.statusMsg').html('<span style="color:red;">Some problem occurred, please try again later.</span>');
                 }
@@ -610,6 +638,15 @@
             var comment = $('#comment3').val();
             var id = $("#Presenter3ID").val();
             var rating = $('input[name=star]:checked').val();
+            if (comment == '')
+                {
+                    return false;
+                }
+             if (typeof rating != 'string')
+                {
+                    $('.statusMsg').html('<span style="color:red;">Please rate the speaker.</span>');
+                    return false;
+                }
             $.ajax(
                     {
                         type:'POST',
@@ -627,6 +664,7 @@
                     $('#comment3').val('');
                     $('input[name="star"]').attr('checked', false);
                     $('.statusMsg').html('<span style="color:green;">Thanks for the input! Check the BBD Twitter page to see if your comment features!</p>');
+                    $('#vote-modal3').modal('toggle');
                 }else{
                     $('.statusMsg').html('<span style="color:red;">Some problem occurred, please try again later.</span>');
                 }

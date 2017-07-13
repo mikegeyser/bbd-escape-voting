@@ -178,7 +178,9 @@
             <div class="col-lg-12">
                 <p class="text-center"; ><a onclick="Tweet();" href="#" class="btn btn-primary btn-lg" >Tweet Winner</a></p>
             </div>
-
+            <div class="col-lg-12">
+                <p class="text-center"><a href="" class="btn btn-primary btn-lg" role="button" onclick="LuckyDraw();">Lucky Draw</a></p>
+            </div>
         </div>
 
         <hr>
@@ -226,7 +228,7 @@
                         <div class="modal-footer">
 
                             <div>
-                                <button type="submit" name="submit" class="btn btn-primary btn-lg btn-block">Add!</button>
+                                <button type="submit" name="submit" class="btn btn-primary btn-lg btn-block" >Add!</button>
                             </div>
 
                         </div>
@@ -360,14 +362,14 @@
 	<!-- The Popup Modal -->
 	<div id="popid" class="popup">
 
-        <!-- Modal content -->
-        <div class="pop-content">
-            <div class="pop-header">
-                <span class="popclose">&times;</span>
-                <h2>Success</h2>
-            </div>
-        <div class="pop-body">
-            <p>Successfully deleted!</p>
+    <!-- Modal content -->
+    <div class="pop-content">
+        <div class="pop-header">
+            <span class="popclose">&times;</span>
+            <h2>Success</h2>
+        </div>
+    <div class="pop-body">
+        <p>Successfully deleted!</p>
         </div>
     </div>
     </div>
@@ -378,6 +380,14 @@
 
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
+
+    <!-- Lucky Draw Script -->
+    <script type="text/javascript">
+        function LuckyDraw(){
+            $get("scripts/luckyDraw.php");
+            return false;
+        }
+    </script>
 
 
     <script type= "text/javascript">
