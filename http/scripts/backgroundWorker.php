@@ -3,13 +3,8 @@
     require_once 'init.php';
     require_once 'twitterFunctions.php';
 
-    // if (!$_REQUEST['key'] === 'YesItIsAStaticKey.Sorry') {
-    //     die('Bad key');
-    // }
-
     // This script will run jobs in the background.
     // Only one instance of this script should run!
-
 
     mainLoop();
     function mainLoop() {
@@ -31,14 +26,12 @@
                     $comment = $output[0]["COMMENT"];
                     $commentid= $output[0]["COMMENTID"];
 
-                    //$result= tweetmessage("$comment - #BBDEscape",'/home/pi/Desktop/image.jpg');
+                    $result= tweetmessage("$comment - #BBDEscape",'/home/pi/Desktop/image.jpg');
                     Logger::debug('Tweeting...'.$comment.PHP_EOL);
 
-                    $result = 0;
                 }else{
-                    //$result= tweetmessage("#BBDEscape",'/home/pi/Desktop/image.jpg');
-                    $result = -1;
-                    Logger::debug('No comments at thsi moment...');
+                    $result= tweetmessage("#BBDEscape",'/home/pi/Desktop/image.jpg');
+                    Logger::debug('No comments at this moment...');
                 }
 
                 if ($result == 0) {
@@ -53,18 +46,7 @@
                 Logger::debug('Background not active');
             }
 
-            /*
-            Logic:
-            Check if the background thread should still be running
-            Add photo to the buffer
-            Pop the first photo from the buffer
-            Fetch a random row from the comments that has not been tweeted before
-            Make a tweet
-
-            sleep for 1 minute
-             */
-
-            sleep(5);
+            sleep(60);
         }
 
     }
