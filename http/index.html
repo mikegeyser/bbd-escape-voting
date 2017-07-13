@@ -10,7 +10,8 @@
     <meta name="author" content="">
 
     <title>BBD - Escape</title>
-
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel = "stylesheet" href ="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
@@ -153,16 +154,28 @@
 
 
 				    		<div class="stars">
-                                <input  id="star-5" value="5" type="radio" name="star"/>
-                                <label  for="star-5"></label>
-                                <input  id="star-4" value="4" type="radio" name="star"/>
-                                <label  for="star-4"></label>
-                                <input  id="star-3" value="3" type="radio" name="star"/>
-                                <label  for="star-3"></label>
-                                <input  id="star-2" value="2" type="radio" name="star"/>
-                                <label  for="star-2"></label>
-                                <input  id="star-1" value="1" type="radio" name="star"/>
-                                <label  for="star-1"></label>
+                                
+                                    <input class="star star-5" id="star-5A" value="5" type="radio" name="star"/>
+                                    
+                                    <label class="star star-5" for="star-5A"></label>
+                                
+                                    <input class="star star-4" id="star-4A" value="4" type="radio" name="star"/>
+                                
+                                    <label class="star star-4" for="star-4A"></label>
+                                
+                                    <input class="star star-3" id="star-3A" value="3" type="radio" name="star"/>
+                                
+                                    <label class="star star-3" for="star-3A"></label>
+                                
+                                    <input class="star star-2" id="star-2A" value="2" type="radio" name="star"/>
+                                
+                                    <label class="star star-2" for="star-2A"></label>
+                                
+                                    <input class="star star-1" id="star-1A" value="1" type="radio" name="star"/>
+                                
+                                    <label class="star star-1" for="star-1A"></label>
+                              
+                               
                             </div>
 
                             <hr>
@@ -211,16 +224,27 @@
 
 
                             <div class="stars">
-                                <input  id="star-5" value="5" type="radio" name="star"/>
-                                <label  for="star-5"></label>
-                                <input  id="star-4" value="4" type="radio" name="star"/>
-                                <label  for="star-4"></label>
-                                <input  id="star-3" value="3" type="radio" name="star"/>
-                                <label  for="star-3"></label>
-                                <input  id="star-2" value="2" type="radio" name="star"/>
-                                <label  for="star-2"></label>
-                                <input  id="star-1" value="1" type="radio" name="star"/>
-                                <label  for="star-1"></label>
+                             
+                                    <input class="star star-5" id="star-5B" value="5" type="radio" name="star"/>
+                                    
+                                    <label class="star star-5" for="star-5B"></label>
+                                
+                                    <input class="star star-4" id="star-4B" value="4" type="radio" name="star"/>
+                                
+                                    <label class="star star-4" for="star-4B"></label>
+                                
+                                    <input class="star star-3" id="star-3B" value="3" type="radio" name="star"/>
+                                
+                                    <label class="star star-3" for="star-3B"></label>
+                                
+                                    <input class="star star-2" id="star-2B" value="2" type="radio" name="star"/>
+                                     
+                                    <label class="star star-2" for="star-2B"></label>
+                                
+                                    <input class="star star-1" id="star-1B" value="1" type="radio" name="star"/>
+                                
+                                    <label class="star star-1" for="star-1B"></label>
+                                
                             </div>
 
                             <hr>
@@ -269,16 +293,26 @@
 
 
                             <div class="stars">
-                                <input  id="star-5" value="5" type="radio" name="star"/>
-                                <label  for="star-5"></label>
-                                <input  id="star-4" value="4" type="radio" name="star"/>
-                                <label  for="star-4"></label>
-                                <input  id="star-3" value="3" type="radio" name="star"/>
-                                <label  for="star-3"></label>
-                                <input  id="star-2" value="2" type="radio" name="star"/>
-                                <label  for="star-2"></label>
-                                <input  id="star-1" value="1" type="radio" name="star"/>
-                                <label  for="star-1"></label>
+                            
+                                    <input class="star star-5" id="star-5C" value="5" type="radio" name="star"/>
+                                  
+                                    <label class="star star-5" for="star-5C"></label>
+                                
+                                    <input class="star star-4" id="star-4C" value="4" type="radio" name="star"/>
+                                
+                                    <label class="star star-4" for="star-4C"></label>
+                                
+                                    <input class="star star-3" id="star-3C" value="3" type="radio" name="star"/>
+                                
+                                    <label class="star star-3" for="star-3C"></label>
+                                
+                                    <input class="star star-2" id="star-2C" value="2" type="radio" name="star"/>
+                                
+                                    <label class="star star-2" for="star-2C"></label>
+                                
+                                    <input class="star star-1" id="star-1C" value="1" type="radio" name="star"/>
+                                
+                                    <label class="star star-1" for="star-1C"></label>
                             </div>
 
                             <hr>
@@ -326,7 +360,15 @@
     <!-- /.container -->
 
     <!-- jQuery -->
-    <script src="js/jquery.js"></script>
+    <script src="js/jquery.js">         
+    </script>
+                
+                <script>
+                    $('li').on('click', function(){
+                        $('li').removeClass('active');
+                        $('this').addClass('active');
+                    })
+                </script>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
