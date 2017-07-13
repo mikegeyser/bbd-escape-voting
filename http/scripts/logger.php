@@ -15,7 +15,7 @@
         public static function log($level, $message) {
             global $defaultLogFile;
             $date = date("y-m-d H:m:s");
-            $result = "[{$date}] [{$level}] {$message}".PHP_EOL;
+            $result = "[{$date}] [{$level}] {$_SERVER['REMOTE_ADDR']} {$message}".PHP_EOL;
 
             if (!file_exists($defaultLogFile)) {
 
