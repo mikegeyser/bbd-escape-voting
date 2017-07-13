@@ -46,7 +46,7 @@
                 Logger::debug('Background not active');
             }
 
-            sleep(60);
+            sleep(180);
         }
 
     }
