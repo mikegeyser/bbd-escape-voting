@@ -10,4 +10,6 @@
 		echo "Updated successfully";
 	}
 	else {echo "Error updating";}
+
+    header ("Location: ../admin.html");
 ?>
