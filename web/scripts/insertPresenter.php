@@ -10,4 +10,6 @@
 		echo "Inserted successfully";
 	}
 	else {echo "Error inserting";}
+
+    header ("Location: ../admin.html");
 ?>
