@@ -325,19 +325,22 @@
 		                <div class="modal-body">
 		    				<div id="div-register-msg">
                                 <div class="dropdown">
-                                    <button class="dropbtn"><text id="PresenterName">Presenter</text></button>
+
+                                    <button class="dropbtn"><text id="Presenter1NameOnly">Open Presenter Slot</text></button>
                                     <div class="dropdown-content">
                                         <a href="" data-dismiss="modal" id="delete">Delete</a>
                                     </div>
                                 </div>
                                 <div class="dropdown">
-                                    <button class="dropbtn"><text id="PresenterName2">Presenter</text></button>
+
+                                    <button class="dropbtn"><text id="Presenter2NameOnly">Open Presenter Slot</text></button>
                                     <div class="dropdown-content">
                                         <a href="" data-dismiss="modal" onclick="delete2();" id="delete2">Delete</a>
                                     </div>
                                 </div>
                                 <div class="dropdown">
-                                    <button class="dropbtn"><text id="PresenterName3">Presenter</text></button>
+
+                                    <button class="dropbtn"><text id="Presenter3NameOnly">Open Presenter Slot</text></button>
                                     <div class="dropdown-content">
                                         <a href="" data-dismiss="modal" onclick="delete3();" id="delete3">Delete</a>
                                     </div>
@@ -560,7 +563,7 @@
             var name = myObj.NAME;
             document.getElementById("Presenter1Name").value = myObj.PRESENTERID +". " + myObj.HANDLE + " " + name;
             document.getElementById("Presenter1Name").innerHTML = myObj.PRESENTERID +". " + myObj.HANDLE + " " + name;
-
+            document.getElementById("Presenter1NameOnly").innerHTML = name;
       }
     };
     xmlhttp.open("GET", "scripts/Presenter1.php", true);
@@ -576,6 +579,7 @@
             var myObj = JSON.parse(newStr);
             document.getElementById("Presenter2Name").value = myObj.PRESENTERID +". " + myObj.HANDLE + " " + myObj.NAME;
             document.getElementById("Presenter2Name").innerHTML = myObj.PRESENTERID +". " + myObj.HANDLE + " " + myObj.NAME;
+            document.getElementById("Presenter2NameOnly").innerHTML = myObj.NAME;
 
         }
     };
@@ -592,6 +596,7 @@
             var myObj = JSON.parse(newStr);
             document.getElementById("Presenter3Name").value = myObj.PRESENTERID +". " + myObj.HANDLE + " " + myObj.NAME;
             document.getElementById("Presenter3Name").innerHTML = myObj.PRESENTERID +". " + myObj.HANDLE + " " + myObj.NAME;
+            document.getElementById("Presenter3NameOnly").innerHTML = myObj.NAME;
 
         }
     };
