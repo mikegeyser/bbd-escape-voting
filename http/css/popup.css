@@ -19,6 +19,10 @@ div#div-forms
 {
     color: black;
 }
+div.stars
+{
+    position: inherit
+}
 
 
 img#img_logo.img-circle
