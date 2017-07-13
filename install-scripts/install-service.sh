@@ -5,25 +5,35 @@
 controlDir=$PWD/control/accesspoint
 webControlDir=$PWD/control/web
 
+echo "#!/bin/bash
+$webControlDir/initPHPLoop.sh &
+$webControlDir/startPHPLoop.sh &
+$controlDir/accesspoint.sh &
+$controlDir/startAP.sh &" >> $PWD/control/start.sh
+sudo chmod 774 $PWD/control/start.sh
+
+echo "#!/bin/bash
+$controlDir/stopAP.sh &
+$controlDir/stopAP.sh &
+$webControlDir/stopPHPLoop.sh &
+killall -9 apache2 &
+systemctl restart appache2 &
+" >> $PWD/control/stop.sh
+sudo chmod 774 $PWD/control/stop.sh
+
 echo "[Unit]
 Description=BBD Escape Hotspot and PHP loop
 
 [Service]
 Type=oneshot
 RemainAfterExit=yes
-ExecStart=$webControlDir/initPHPLoop.sh &
-ExecStart=$webControlDir/startPHPLoop.sh &
-ExecStart=$controlDir/accesspoint.sh &
-ExecStart=$controlDir/startAP.sh &
-ExecStop=$controlDir/stopAP.sh &
-ExecStop=$controlDir/stopAP.sh &
-ExecStop=$webControlDir/stopPHPLoop.sh &
-ExecStop=killall -9 apache2 &
-ExecStop=systemctl restart appache2 &
+ExecStart=$PWD/control/start.sh
+ExecStop=$PWD/control/stop.sh
 
 [Install]
 WantedBy=multi-user.target" > escape.service
 
 sudo cp escape.service /etc/systemd/system/
+sudo systemctl daemon-reload
 sudo systemctl enable escape.service
 echo 'Escape.service has been enabled'
