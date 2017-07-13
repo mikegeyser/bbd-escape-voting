@@ -1,3 +1,6 @@
 #!/bin/bash
-name=$(cat /home/pi/Desktop/Escape/name.txt)
-echo "ssid=$name" >> /home/pi/Desktop/Escape/hostapd.conf
+
+# To be run from root folder
+
+name=$(cat name.txt)
+echo "ssid=$name" >> configs/hostapd.conf
