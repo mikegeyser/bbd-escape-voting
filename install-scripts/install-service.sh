@@ -11,15 +11,15 @@ Description=BBD Escape Hotspot and PHP loop
 [Service]
 Type=oneshot
 RemainAfterExit=yes
-ExecStart=$webControlDir/initPHPLoop.sh
-ExecStart=$webControlDir/startPHPLoop.sh
-ExecStart=$controlDir/accesspoint.sh
-ExecStart=$controlDir/startAP.sh
-ExecStop=$controlDir/stopAP.sh
-ExecStop=$controlDir/stopAP.sh
-ExecStop=$webControlDir/stopPHPLoop.sh
-ExecStop=killall -9 apache2
-ExecStop=systemctl restart appache2
+ExecStart=$webControlDir/initPHPLoop.sh &
+ExecStart=$webControlDir/startPHPLoop.sh &
+ExecStart=$controlDir/accesspoint.sh &
+ExecStart=$controlDir/startAP.sh &
+ExecStop=$controlDir/stopAP.sh &
+ExecStop=$controlDir/stopAP.sh &
+ExecStop=$webControlDir/stopPHPLoop.sh &
+ExecStop=killall -9 apache2 &
+ExecStop=systemctl restart appache2 &
 
 [Install]
 WantedBy=multi-user.target" > escape.service
