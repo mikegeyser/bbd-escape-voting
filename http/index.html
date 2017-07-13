@@ -132,31 +132,32 @@
 
     </header>
 
-    <!-- BEGIN Presenter 1 Form -->
+    <!-- BEGIN Presenter 3 Form -->
 <div class="modal fade" id="vote-modal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-    	<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header" align="center">
-					<img class="img-circle" id="img_logo" src="img/BBD-SoftwareDevelopment-White.png">
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-						<i class="fa fa-times" aria-hidden="true"></i>
-					</button>
-				</div>
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header" align="center">
+                    <img class="img-circle" id="img_logo" src="img/BBD-SoftwareDevelopment-White.png">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <i class="fa fa-times" aria-hidden="true"></i>
+                    </button>
+                </div>
 
                 <!-- Begin # DIV Form -->
                 <div id="div-forms">
 
                     <!-- Begin # Rate and Vote Form -->
-                    <form id="submit-form" method="post" action="scripts/newComment.php">
-		                <div class="modal-body">
+                    <form id="submit-form1" method="post" action="">
+                        <div class="modal-body">
+                            <p class="statusMsg"></p>
 
-				            <input type="hidden" id="Presenter1ID"  name="presenterid" value="" />
+                            <input type="hidden" id="Presenter1ID"  name="presenterid" value="" />
 
 
-				    		<div class="stars">
-                                
+                            <div class="stars">
+                            
                                     <input class="star star-5" id="star-5A" value="5" type="radio" name="star"/>
-                                    
+                                  
                                     <label class="star star-5" for="star-5A"></label>
                                 
                                     <input class="star star-4" id="star-4A" value="4" type="radio" name="star"/>
@@ -174,22 +175,20 @@
                                     <input class="star star-1" id="star-1A" value="1" type="radio" name="star"/>
                                 
                                     <label class="star star-1" for="star-1A"></label>
-                              
-                               
                             </div>
 
                             <hr>
-                            <label for="comment" class="control-label">Your comment:</label>
-                            <input id="comment" name="comment" class="form-control" type="text" placeholder="Give us your comment" required>
-                            <label for="name" class="control-label">Your name:</label>
-                            <input id="name" name="name" class="form-control" type="text" placeholder="Optionally enter your name to stand a chance to win">
-        		    	</div>
-				        <div class="modal-footer">
+                            <label for="comment1" class="control-label">Your comment:</label>
+                            <input id="comment1" name="comment1" class="form-control" type="text" placeholder="Give us your comment" required>
+                            <label for="name1" class="control-label">Your name:</label>
+                            <input id="name1" name="name1" value="" class="form-control" type="text" placeholder="Optionally enter your name to stand a chance to win">
+                        </div>
+                        <div class="modal-footer">
                             <div>
-                                <button type="submit" name="submit" class="btn btn-primary btn-lg btn-block">Send!</button>
+                                <button type="submit" name="submit" class="btn btn-primary submitBtn" onclick="submitPresenter1()">Send!</button>
                             </div>
 
-				        </div>
+                        </div>
                     </form>
                     <!-- End # Rate and Vote Form -->
 
@@ -197,9 +196,9 @@
                 </div>
                 <!-- End # DIV Form -->
 
-			</div>
-		</div>
-	</div>
+            </div>
+        </div>
+    </div>
     <!-- END # Form -->
 
     <!-- BEGIN Presenter 2 Form -->
@@ -217,13 +216,14 @@
                 <div id="div-forms">
 
                     <!-- Begin # Rate and Vote Form -->
-                    <form id="submit-form" method="post" action="scripts/newComment.php">
+                    <form id="submit-form2" method="post" action="">
                         <div class="modal-body">
+                            <p class="statusMsg"></p>
 
                             <input type="hidden" id="Presenter2ID"  name="presenterid" value="" />
 
 
-                            <div class="stars">
+                            <div  class="stars">
                              
                                     <input class="star star-5" id="star-5B" value="5" type="radio" name="star"/>
                                     
@@ -248,14 +248,14 @@
                             </div>
 
                             <hr>
-                            <label for="comment" class="control-label">Your comment:</label>
-                            <input id="comment" name="comment" class="form-control" type="text" placeholder="Give us your comment" required>
-                            <label for="name" class="control-label">Your name:</label>
-                            <input id="name" name="name" class="form-control" type="text" placeholder="Optionally enter your name to stand a chance to win">
+                            <label for="comment2" class="control-label">Your comment:</label>
+                            <input id="comment2" name="comment2" class="form-control" type="text" placeholder="Give us your comment" required>
+                            <label for="name2" class="control-label">Your name:</label>
+                            <input id="name2" name="name2" class="form-control" type="text" placeholder="Optionally enter your name to stand a chance to win">
                         </div>
                         <div class="modal-footer">
                             <div>
-                                <button type="submit" name="submit" class="btn btn-primary btn-lg btn-block">Send!</button>
+                                <button type="submit" name="submit" class="btn btn-primary submitBtn" onclick="submitPresenter2()">Send!</button>
                             </div>
 
                         </div>
@@ -284,10 +284,12 @@
 
                 <!-- Begin # DIV Form -->
                 <div id="div-forms">
+                    
 
                     <!-- Begin # Rate and Vote Form -->
-                    <form id="submit-form3" method="post" action="scripts/newComment.php">
+                    <form id="submit-form3" method="post" action="">
                         <div class="modal-body">
+                            <p class="statusMsg"></p>
 
                             <input type="hidden" id="Presenter3ID"  name="presenterid" value="" />
 
@@ -316,14 +318,14 @@
                             </div>
 
                             <hr>
-                            <label for="comment" class="control-label">Your comment:</label>
-                            <input id="comment" name="comment" class="form-control" type="text" placeholder="Give us your comment" required>
-                            <label for="name" class="control-label">Your name:</label>
-                            <input id="name" name="name" class="form-control" type="text" placeholder="Optionally enter your name to stand a chance to win">
+                            <label for="comment3" class="control-label">Your comment:</label>
+                            <input id="comment3" name="comment3" class="form-control" type="text" placeholder="Give us your comment" required>
+                            <label for="name3" class="control-label">Your name:</label>
+                            <input id="name3" name="name3" class="form-control" type="text" placeholder="Optionally enter your name to stand a chance to win">
                         </div>
                         <div class="modal-footer">
                             <div>
-                                <button type="submit" name="submit" class="btn btn-primary btn-lg btn-block">Send!</button>
+                                <button type="submit" name="submit" class="btn btn-primary submitBtn" onclick="submitPresenter3()">Send!</button>
                             </div>
 
                         </div>
@@ -531,48 +533,119 @@
     xmlhttp.open("GET", "scripts/Presenter1.php", true);
     xmlhttp.send();
     </script>
+                
+    <script>
+        function submitPresenter1()
+        {
+            var reg = /^[A-Z0-9._%+-]+@([A-Z0-9-]+\.)+[A-Z]{2,4}$/i;
+            var name = $('#name1').val();
+            var comment = $('#comment1').val();
+            var id = $("#Presenter1ID").val();
+            var rating = $('input[name=star]:checked').val();
+            $.ajax(
+                    {
+                        type:'POST',
+                        url:'scripts/newComment.php',
+                        data:'name='+name+'&star='+rating+'&comment='+comment+'&presenterid='+id,
+            
+                        beforeSend: function () {
+                $('.submitBtn').attr("disabled","disabled");
+                $('.modal-body').css('opacity', '.5');
+            },
+            success:function(msg)
+                        {
+                if(msg == 'ok'){
+                    $('#name1').val('');
+                    $('#comment1').val('');
+                    $('input[name="star"]').attr('checked', false);
+                    $('.statusMsg').html('<span style="color:green;">Thanks for the input! Check the BBD Twitter page to see if your comment features!</p>');
+                }else{
+                    $('.statusMsg').html('<span style="color:red;">Some problem occurred, please try again later.</span>');
+                }
+                $('.submitBtn').removeAttr("disabled");
+                $('.modal-body').css('opacity', '');
+            }
+        });
+    }
+        
+    
+        
+        function submitPresenter2()
+        {
+            var reg = /^[A-Z0-9._%+-]+@([A-Z0-9-]+\.)+[A-Z]{2,4}$/i;
+            var name = $('#name2').val();
+            var comment = $('#comment2').val();
+            var id = $("#Presenter2ID").val();
+            var rating = $('input[name=star]:checked').val();
+            $.ajax(
+                    {
+                        type:'POST',
+                        url:'scripts/newComment.php',
+                        data:'name='+name+'&star='+rating+'&comment='+comment+'&presenterid='+id,
+            
+                        beforeSend: function () {
+                $('.submitBtn').attr("disabled","disabled");
+                $('.modal-body').css('opacity', '.5');
+            },
+            success:function(msg)
+                        {
+                if(msg == 'ok'){
+                    $('#name2').val('');
+                    $('#comment2').val('');
+                    $('input[name="star"]').attr('checked', false);
+                    $('.statusMsg').html('<span style="color:green;">Thanks for the input! Check the BBD Twitter page to see if your comment features!</p>');
+                }else{
+                    $('.statusMsg').html('<span style="color:red;">Some problem occurred, please try again later.</span>');
+                }
+                $('.submitBtn').removeAttr("disabled");
+                $('.modal-body').css('opacity', '');
+            }
+        });
+    }
+        
+        function submitPresenter3()
+        {
+            var reg = /^[A-Z0-9._%+-]+@([A-Z0-9-]+\.)+[A-Z]{2,4}$/i;
+            var name = $('#name3').val();
+            var comment = $('#comment3').val();
+            var id = $("#Presenter3ID").val();
+            var rating = $('input[name=star]:checked').val();
+            $.ajax(
+                    {
+                        type:'POST',
+                        url:'scripts/newComment.php',
+                        data:'name='+name+'&star='+rating+'&comment='+comment+'&presenterid='+id,
+            
+                        beforeSend: function () {
+                $('.submitBtn').attr("disabled","disabled");
+                $('.modal-body').css('opacity', '.5');
+            },
+            success:function(msg)
+                        {
+                if(msg == 'ok'){
+                    $('#name3').val('');
+                    $('#comment3').val('');
+                    $('input[name="star"]').attr('checked', false);
+                    $('.statusMsg').html('<span style="color:green;">Thanks for the input! Check the BBD Twitter page to see if your comment features!</p>');
+                }else{
+                    $('.statusMsg').html('<span style="color:red;">Some problem occurred, please try again later.</span>');
+                }
+                $('.submitBtn').removeAttr("disabled");
+                $('.modal-body').css('opacity', '');
+            }
+        });
+    }
 
-    <script type='text/javascript'>
-    /* attach a submit handler to the form */
-    $("#formoid").submit(function(event) {
-
-      /* stop form from submitting normally */
-      event.preventDefault();
-
-      /* get the action attribute from the <form action=""> element */
-      var $form = $( this ),
-          url = $form.attr( 'action' );
-
-      /* Send the data using post with element id name and name2*/
-      var posting = $.post( url, { name: $('#name').val(), name2: $('#name2').val() } );
-
-      /* Alerts the results */
-      posting.done(function( data ) {
-        alert('success');
-      });
-    });
 </script>
+                
+                <script>
+                    $(document).ready(function() {
+  $(".modal").on("hidden.bs.modal", function() {
+    $(".statusMsg").html("");
+  });
+});
+                </script>
 
-<script type='text/javascript'>
-    /* attach a submit handler to the form */
-    $("#submit-form3").submit(function(event) {
-
-      /* stop form from submitting normally */
-      event.preventDefault();
-
-      /* get the action attribute from the <form action=""> element */
-      var $form = $( this ),
-          url = $form.attr( 'action' );
-
-      /* Send the data using post with element id name and name2*/
-      var posting = $.post( url, { name: $('#name').val(), presenterid: $('#Presenter3ID').val(), star: $('#star').val(), comment: $('#comment').val() } );
-
-      /* Alerts the results */
-      posting.done(function( data ) {
-        alert('success');
-      });
-    });
-</script>
 
 
 </body>
