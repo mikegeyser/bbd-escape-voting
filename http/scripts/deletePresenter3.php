@@ -7,7 +7,7 @@
     while($row = $result->fetch_assoc()){
         $id_array[] = $row['PRESENTERID'];
     }
-    $ID = $id_array[1];
+    $ID = $id_array[3];
     
 	if ($res = $conn->query("DELETE FROM presenter WHERE PRESENTERID=" .$ID)){
 		echo "Deleted successfully";
