@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-    
+
 <head>
 
     <meta charset="utf-8">
@@ -31,7 +31,7 @@
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
-          
+
                 <a class="navbar-brand" href="#"><img src="img/BBD-SoftwareDevelopment-White.png"></a>
             </div>
 
@@ -153,25 +153,25 @@
 
 
                             <div class="stars">
-                            
+
                                     <input class="star star-5" id="star-5A" value="5" type="radio" name="star" required/>
-                                  
+
                                     <label class="star star-5" for="star-5A"></label>
-                                
+
                                     <input class="star star-4" id="star-4A" value="4" type="radio" name="star"/>
-                                
+
                                     <label class="star star-4" for="star-4A"></label>
-                                
+
                                     <input class="star star-3" id="star-3A" value="3" type="radio" name="star"/>
-                                
+
                                     <label class="star star-3" for="star-3A"></label>
-                                
+
                                     <input class="star star-2" id="star-2A" value="2" type="radio" name="star"/>
-                                
+
                                     <label class="star star-2" for="star-2A"></label>
-                                
+
                                     <input class="star star-1" id="star-1A" value="1" type="radio" name="star"/>
-                                
+
                                     <label style="position:fixed; left: 20px" class="star star-1" for="star-1A"></label>
                             </div>
 
@@ -222,27 +222,27 @@
 
 
                             <div  class="stars">
-                             
+
                                     <input class="star star-5" id="star-5B" value="5" type="radio" name="star" required/>
-                                    
+
                                     <label class="star star-5" for="star-5B"></label>
-                                
+
                                     <input class="star star-4" id="star-4B" value="4" type="radio" name="star"/>
-                                
+
                                     <label class="star star-4" for="star-4B"></label>
-                                
+
                                     <input class="star star-3" id="star-3B" value="3" type="radio" name="star"/>
-                                
+
                                     <label class="star star-3" for="star-3B"></label>
-                                
+
                                     <input class="star star-2" id="star-2B" value="2" type="radio" name="star"/>
-                                     
+
                                     <label class="star star-2" for="star-2B"></label>
-                                
+
                                     <input class="star star-1" id="star-1B" value="1" type="radio" name="star"/>
-                                
+
                                     <label style="position:fixed; left: 20px" class="star star-1" for="star-1B"></label>
-                                
+
                             </div>
 
                             <hr>
@@ -282,7 +282,7 @@
 
                 <!-- Begin # DIV Form -->
                 <div id="div-forms">
-                    
+
 
                     <!-- Begin # Rate and Vote Form -->
                     <form id="submit-form3" method="post" action="">
@@ -293,25 +293,25 @@
 
 
                             <div class="stars">
-                            
+
                                     <input class="star star-5" id="star-5C" value="5" type="radio" name="star" required/>
-                                  
+
                                     <label class="star star-5" for="star-5C"></label>
-                                
+
                                     <input class="star star-4" id="star-4C" value="4" type="radio" name="star"/>
-                                
+
                                     <label class="star star-4" for="star-4C"></label>
-                                
+
                                     <input class="star star-3" id="star-3C" value="3" type="radio" name="star"/>
-                                
+
                                     <label class="star star-3" for="star-3C"></label>
-                                
+
                                     <input class="star star-2" id="star-2C" value="2" type="radio" name="star"/>
-                                
+
                                     <label class="star star-2" for="star-2C"></label>
-                                
+
                                     <input class="star star-1" id="star-1C" value="1" type="radio" name="star"/>
-                                
+
                                     <label style="position:fixed; left: 20px" class="star star-1" for="star-1C"></label>
                             </div>
 
@@ -360,9 +360,9 @@
     <!-- /.container -->
 
     <!-- jQuery -->
-    <script src="js/jquery.js">         
+    <script src="js/jquery.js">
     </script>
-                
+
                 <script>
                     $('li').on('click', function(){
                         $('li').removeClass('active');
@@ -372,9 +372,9 @@
 
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
-    
-    <script src="js/swipe/jquery.mobile-1.4.5.min.js"></script>
-                
+
+    <!--<script src="js/swipe/jquery.mobile-1.4.5.min.js"></script>-->
+
     <script>
     $(document).ready(function() {
         $("#myCarousel").swiperight(function() {
@@ -539,7 +539,7 @@
     xmlhttp.open("GET", "scripts/Presenter1.php", true);
     xmlhttp.send();
     </script>
-                
+
     <script>
         function submitPresenter1()
         {
@@ -557,13 +557,13 @@
                     $('.statusMsg').html('<span style="color:red;">Please rate the speaker.</span>');
                     return false;
                 }
-            
+
             $.ajax(
                     {
                         type:'POST',
                         url:'scripts/newComment.php',
                         data:'name='+name+'&star='+rating+'&comment='+comment+'&presenterid='+id,
-            
+
                         beforeSend: function () {
                 $('.submitBtn').attr("disabled","disabled");
                 $('.modal-body').css('opacity', '.5');
@@ -576,7 +576,7 @@
                     $('input[name="star"]').attr('checked', false);
                     $('.statusMsg').html('<span style="color:green;">Thanks for the input! Check the BBD Twitter page to see if your comment features!</p>');
                     $('#vote-modal1').modal('toggle');
-                    
+
                 }else{
                     $('.statusMsg').html('<span style="color:red;">Some problem occurred, please try again later.</span>');
                 }
@@ -585,9 +585,9 @@
             }
         });
     }
-        
-    
-        
+
+
+
         function submitPresenter2()
         {
             var reg = /^[A-Z0-9._%+-]+@([A-Z0-9-]+\.)+[A-Z]{2,4}$/i;
@@ -609,7 +609,7 @@
                         type:'POST',
                         url:'scripts/newComment.php',
                         data:'name='+name+'&star='+rating+'&comment='+comment+'&presenterid='+id,
-            
+
                         beforeSend: function () {
                 $('.submitBtn').attr("disabled","disabled");
                 $('.modal-body').css('opacity', '.5');
@@ -630,7 +630,7 @@
             }
         });
     }
-        
+
         function submitPresenter3()
         {
             var reg = /^[A-Z0-9._%+-]+@([A-Z0-9-]+\.)+[A-Z]{2,4}$/i;
@@ -652,7 +652,7 @@
                         type:'POST',
                         url:'scripts/newComment.php',
                         data:'name='+name+'&star='+rating+'&comment='+comment+'&presenterid='+id,
-            
+
                         beforeSend: function () {
                 $('.submitBtn').attr("disabled","disabled");
                 $('.modal-body').css('opacity', '.5');
@@ -675,7 +675,7 @@
     }
 
 </script>
-                
+
                 <script>
                     $(document).ready(function() {
   $(".modal").on("hidden.bs.modal", function() {
