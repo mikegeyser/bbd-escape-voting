@@ -5,19 +5,17 @@
 
     // Get data from request
 
-    
 
-	$consumerKey = $_REQUEST["consumerKey"]; 
-        $consumerSecret = $_REQUEST["consumerSecret"];
-        $accessToken = $_REQUEST["accessToken"];
-        $accessTokenSecret = $_REQUEST["accessTokenSecret"];
+    require 'db.php';
 
-        $conn = new mysqli("127.0.0.1", "bbd", "password","Escape", 3306); 
 	$sql = "SELECT MAX(AVERAGE) AS RATING, TIMESLOT,HANDLE, NAME, TOPIC FROM
                 (SELECT AVG(RATING) AS AVERAGE,  TIMESLOT, HANDLE, NAME, TOPIC FROM VOTES LEFT JOIN PRESENTER ON PRESENTERID = TIMESLOT)
                 AS MAXAVG";
 
  	$result = $conn->query($sql);
+
+    Logger::debug($conn->error);
+    
         $output = array();
         while($row = $result->fetch_assoc()){
                 $output[]=$row;
@@ -30,6 +28,8 @@
 	$track = fread($myfile, filesize("name.txt"));
 	fclose($myfile);
 
-    tweetMessage("The winner of $track is $name: $handle, with the topic $topic  #BBDEscape", null);
+    tweetMessage("The winner is $name: $handle, with the topic $topic  #BBDEscape", null);
+
+
 
 ?>
