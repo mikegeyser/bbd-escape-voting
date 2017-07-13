@@ -1,8 +1,8 @@
 #!/bin/bash
 
-user=http
-logDir=/var/log/escape
-configDir=/var/opt/escape #Need to change in config.php h as well
+source ../utils/bash-ini-parser
+cfg_parser '../config.ini'
+cfg_section_logging
 
 sudo mkdir -p $logDir
 sudo chown -R $user $logDir
