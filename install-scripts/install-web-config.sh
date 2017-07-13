@@ -7,6 +7,7 @@ cfg_section_logging
 
 sudo mkdir -p $logDir
 sudo chown -R $user $logDir
+sudo chmod 777 -R $logDir
 
 sudo mkdir -p $configDir
 sudo cp 'config.ini' $configDir
