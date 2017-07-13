@@ -8,5 +8,5 @@ sudo mkdir -p $logDir
 sudo chown -R $user $logDir
 
 sudo mkdir -p $configDir
-sudo cp config.ini $configDir
+sudo cp '../config.ini' $configDir
 sudo chown $user $configDir/config.ini
