@@ -9,7 +9,7 @@ echo "#!/bin/bash
 $webControlDir/initPHPLoop.sh &
 $webControlDir/startPHPLoop.sh &
 $controlDir/accesspoint.sh &
-$controlDir/startAP.sh &" >> $PWD/control/start.sh
+$controlDir/startAP.sh &" > $PWD/control/start.sh
 sudo chmod 774 $PWD/control/start.sh
 
 echo "#!/bin/bash
@@ -17,7 +17,7 @@ $controlDir/stopAP.sh &
 $controlDir/stopAP.sh &
 $webControlDir/stopPHPLoop.sh &
 killall -9 apache2 &
-" >> $PWD/control/stop.sh
+" > $PWD/control/stop.sh
 sudo chmod 774 $PWD/control/stop.sh
 
 echo "[Unit]
