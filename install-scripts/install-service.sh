@@ -22,6 +22,8 @@ sudo chmod 774 $PWD/control/stop.sh
 
 echo "[Unit]
 Description=BBD Escape Hotspot and PHP loop
+Wants=network-online.target
+After=network-online.target
 
 [Service]
 Type=oneshot
