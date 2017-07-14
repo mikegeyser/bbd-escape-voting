@@ -6,7 +6,7 @@
 3. Clone this repo to the pi
 4. Run `install.sh`. This will do the following:
     - Install LAMP
-    - Configure apache2 to serve on port 80
+    - Configure apache2 to serve on port 777
     - Configure mysql with username `root` and password `password`
     - Install the systemd service `escape` which will run on startup
     - Create directories required for log files in `/var/log/escape`
