@@ -16,3 +16,8 @@ body
 {
     margin-top: 10px;
 }
+
+div.modal-footer
+{
+        text-align: center;
+}

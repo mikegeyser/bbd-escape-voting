@@ -12,7 +12,8 @@
 }
 div.modal-content
 {
-    background-color: lightgray;
+    background-color: black;
+    border: 1px solid red;
 }
 
 div#div-forms
