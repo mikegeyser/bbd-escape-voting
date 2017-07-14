@@ -574,6 +574,7 @@
                     $('#name1').val('');
                     $('#comment1').val('');
                     $('input[name="star"]').attr('checked', false);
+                    $('#statusMsg1').html('<span style="color:red;"></span>');
                     $('#vote-modal1').modal('toggle');
 
                 }else{
@@ -619,9 +620,10 @@
                     $('#name2').val('');
                     $('#comment2').val('');
                     $('input[name="star"]').attr('checked', false);
+                    $('#statusMsg2').html('<span style="color:red;"></span>');
                     $('#vote-modal2').modal('toggle');
                 }else{
-                    $('.statusMsg2').html('<span style="color:red;">Some problem occurred, please try again later.</span>');
+                    $('#statusMsg2').html('<span style="color:red;">Some problem occurred, please try again later.</span>');
                 }
                 $('.submitBtn').removeAttr("disabled");
                 $('.modal-body').css('opacity', '');
@@ -661,9 +663,11 @@
                     $('#name3').val('');
                     $('#comment3').val('');
                     $('input[name="star"]').attr('checked', false);
+                    $('#statusMsg3').html('<span style="color:red;"></span>');
                     $('#vote-modal3').modal('toggle');
+
                 }else{
-                    $('.statusMsg3').html('<span style="color:red;">Some problem occurred, please try again later.</span>');
+                    $('#statusMsg3').html('<span style="color:red;">Some problem occurred, please try again later.</span>');
                 }
                 $('.submitBtn').removeAttr("disabled");
                 $('.modal-body').css('opacity', '');
