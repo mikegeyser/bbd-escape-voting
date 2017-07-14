@@ -45,7 +45,7 @@ function tweetMessage($message, $imagePath) {
         $reply = $cb->media_upload(array(
         	'media' => $imagePath
     	));
-
+        Logger::debug("Image has been uploaded");
         if (!property_exists($reply, 'media_id_string')) {
             Logger::error("Failed to upload image {$imagePath}");
             Logger::error(print_r($reply, true));
@@ -58,9 +58,10 @@ function tweetMessage($message, $imagePath) {
             'media_ids' => $mediaID
         );
     }
-
+    Logger::debug("Sending tweet...");
     $reply = $cb->statuses_update($params);
     $status = $reply->httpstatus;
+    Logger::debug("Tweet has been posted! ".$reply->httpstatus);
 
     if ($status != 200) {
         Logger::error("Could not create twitter status. HTTP Returned {$status}");
