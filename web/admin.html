@@ -263,11 +263,7 @@
                         <h1 style="text-align: center">Edit Presenters</h1>
 
 
-                        <select id="presenterName" onchange = "updateValues()">
-                          <option id="Presenter1Name" value="">Open Presenter Slot</option>
-                          <option id="Presenter2Name" value="">Open Presenter Slot</option>
-                          <option id="Presenter3Name" value="">Open Presenter Slot</option>
-                        </select>
+                        
 
 
                         <input type="hidden" id="name"  name="name" value="" />
@@ -275,6 +271,14 @@
                         <input type="hidden" id="timeslotUpdate"  name="timeslotUpdate" value="" />
 
                         <div class="modal-body">
+                            
+                            <select id="presenterName" onchange = "updateValues()">
+                              <option id="Presenter1Name" value="">Open Presenter Slot</option>
+                              <option id="Presenter2Name" value="">Open Presenter Slot</option>
+                              <option id="Presenter3Name" value="">Open Presenter Slot</option>
+                            </select>
+                            
+                            <hr style="border:0px">
 
                             <label for="topic" class="control-label">Topic</label>
                             <input id="topic" value = "" name="topic" class="form-control" type="text" required>
