@@ -1,8 +1,5 @@
 <?php
 	echo shell_exec('sh /var/www/cgi-bin/camera.sh'); //execute script to take picture
-	Logger::debug('compressing image...');
-	shell_exec('sh jpegoptim -S 512 /home/pi/Desktop/image/jpg');
-	Logger::debug('Compresseion done.');
 
 	$message = $_REQUEST["message"];
 
