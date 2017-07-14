@@ -1,0 +1,25 @@
+div.modal-content
+{
+    background-color: darkgrey;
+}
+
+div#div-forms
+{
+    color: black;
+}
+
+
+img#img_logo.img-circle
+{
+    height: 5em;
+    border-radius: 0;
+}
+
+a.btn.btn-primary.btn-lg{
+    width: 12em;
+}
+
+div#div-register-msg
+{
+        text-align: center
+}

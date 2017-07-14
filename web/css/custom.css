@@ -1,0 +1,23 @@
+#explain div.row
+{
+    margin-top: 30px;
+}
+
+header#myCarousel.carousel.slide
+{
+    height: 450px;
+}
+
+img#img_logo.img-circle
+{
+    border-radius: 0;
+}
+body
+{
+    margin-top: 10px;
+}
+
+div.modal-footer
+{
+        text-align: center;
+}
