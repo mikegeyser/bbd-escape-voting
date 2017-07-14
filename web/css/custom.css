@@ -12,3 +12,7 @@ img#img_logo.img-circle
 {
     border-radius: 0;
 }
+body
+{
+    margin-top: 10px;
+}
