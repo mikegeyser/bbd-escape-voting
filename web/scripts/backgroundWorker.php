@@ -31,11 +31,14 @@
                     $comment = $output[0]["COMMENT"];
                     $commentid= $output[0]["COMMENTID"];
 
-                    $result= tweetmessage("$comment - #BBDEscape",'/home/pi/Desktop/image.jpg');
+                    //$result= tweetmessage("$comment - #BBDEscape",'/home/pi/Desktop/image.jpg');
+                    $result= tweetmessage("$comment - #BBDEscape",null);
                     Logger::debug('Tweeting...'.$comment.PHP_EOL);
 
                 }else{
-                    $result= tweetmessage("#BBDEscape",'/home/pi/Desktop/image.jpg');
+                    //$result= tweetmessage("#BBDEscape",'/home/pi/Desktop/image.jpg');
+                    $result= tweetmessage("#BBDEscape",mull);
+
                     Logger::debug('No comments at this moment...');
                 }
 
