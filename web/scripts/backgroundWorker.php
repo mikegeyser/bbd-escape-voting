@@ -36,8 +36,8 @@
                     Logger::debug('Tweeting...'.$comment.PHP_EOL);
 
                 }else{
-                    //$result= tweetmessage("#BBDEscape",'/home/pi/Desktop/image.jpg');
-                    $result= tweetmessage("#BBDEscape",null);
+                    $result= tweetmessage("#BBDEscape",'/home/pi/Desktop/image.jpg');
+                    //$result= tweetmessage("#BBDEscape",null);
 
                     Logger::debug('No comments at this moment...');
                 }
