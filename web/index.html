@@ -147,7 +147,7 @@
                     <!-- Begin # Rate and Vote Form -->
                     <form id="submit-form1" method="post" action="">
                         <div class="modal-body">
-                            <p class="statusMsg"></p>
+                            <p id = "statusMsg1" class="statusMsg"></p>
 
                             <input type="hidden" id="Presenter1ID"  name="presenterid" value="" />
 
@@ -216,7 +216,7 @@
                     <!-- Begin # Rate and Vote Form -->
                     <form id="submit-form2" method="post" action="">
                         <div class="modal-body">
-                            <p class="statusMsg"></p>
+                            <p id = "statusMsg2" class="statusMsg"></p>
 
                             <input type="hidden" id="Presenter2ID"  name="presenterid" value="" />
 
@@ -287,7 +287,7 @@
                     <!-- Begin # Rate and Vote Form -->
                     <form id="submit-form3" method="post" action="">
                         <div class="modal-body">
-                            <p class="statusMsg"></p>
+                            <p id = "statusMsg3" class="statusMsg"></p>
 
                             <input type="hidden" id="Presenter3ID"  name="presenterid" value="" />
 
@@ -574,11 +574,10 @@
                     $('#name1').val('');
                     $('#comment1').val('');
                     $('input[name="star"]').attr('checked', false);
-                    $('.statusMsg').html('<span style="color:green;">Thanks for the input! Check the BBD Twitter page to see if your comment features!</p>');
                     $('#vote-modal1').modal('toggle');
 
                 }else{
-                    $('.statusMsg').html('<span style="color:red;">Some problem occurred, please try again later.</span>');
+                    $('#statusMsg1').html('<span style="color:red;">Some problem occurred, please try again later.</span>');
                 }
                 $('.submitBtn').removeAttr("disabled");
                 $('.modal-body').css('opacity', '');
@@ -620,10 +619,9 @@
                     $('#name2').val('');
                     $('#comment2').val('');
                     $('input[name="star"]').attr('checked', false);
-                    $('.statusMsg').html('<span style="color:green;">Thanks for the input! Check the BBD Twitter page to see if your comment features!</p>');
                     $('#vote-modal2').modal('toggle');
                 }else{
-                    $('.statusMsg').html('<span style="color:red;">Some problem occurred, please try again later.</span>');
+                    $('.statusMsg2').html('<span style="color:red;">Some problem occurred, please try again later.</span>');
                 }
                 $('.submitBtn').removeAttr("disabled");
                 $('.modal-body').css('opacity', '');
@@ -663,10 +661,9 @@
                     $('#name3').val('');
                     $('#comment3').val('');
                     $('input[name="star"]').attr('checked', false);
-                    $('.statusMsg').html('<span style="color:green;">Thanks for the input! Check the BBD Twitter page to see if your comment features!</p>');
                     $('#vote-modal3').modal('toggle');
                 }else{
-                    $('.statusMsg').html('<span style="color:red;">Some problem occurred, please try again later.</span>');
+                    $('.statusMsg3').html('<span style="color:red;">Some problem occurred, please try again later.</span>');
                 }
                 $('.submitBtn').removeAttr("disabled");
                 $('.modal-body').css('opacity', '');
