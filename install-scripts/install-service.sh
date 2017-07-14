@@ -16,7 +16,7 @@ echo "#!/bin/bash
 $controlDir/stopAP.sh &
 $controlDir/stopAP.sh &
 $webControlDir/stopPHPLoop.sh &
-killall -9 apache2 &
+sudo killall -9 apache2 &
 " > $PWD/control/stop.sh
 sudo chmod 774 $PWD/control/stop.sh
 
