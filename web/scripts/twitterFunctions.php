@@ -26,8 +26,8 @@ function tweetMessage($message, $imagePath) {
      \Codebird\Codebird::setConsumerKey("$consumerKey", "$consumerSecret");
         $cb = \Codebird\Codebird::getInstance();
         $cb->setToken("$accessToken", "$accessTokenSecret");
-    $cb->setConnectionTimeout(5000);
-        $cb->setTimeout(7000);
+    $cb->setConnectionTimeout(10000);
+        $cb->setTimeout(15000);
 
     $params = array(
         'status' => "$message",
