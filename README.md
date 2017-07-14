@@ -14,13 +14,33 @@
     - Enable the camera interface on the pi
     - Reboot
 
+## Managing the service
+- The `escape` service will start on boot, it can also be manually controlled
+
+### Start
+- `sudo systemctl start escape`
+
+### Stop
+- `sudo systemctl start escape`
+
 ## Updating
-It may be required to update the software, in thsi case `install.sh` should update
-files in the required places.
+It may be required to update the software, in this case `install.sh` should update
+all required files.
+
+`refresh.sh` will only copy the new web files and reinstall the systemd service
 
 ## Config
+- Execute `refresh.sh` after changing the `config.ini`
+
 #### SSID
 - `configs/hostapd.conf`
 
 #### Twitter Tokens
 - 'config.ini'
+
+#### MySql
+- `install-scripts/install-lamp.sh`
+
+## Logs
+### Escape
+- '/var/log/escape/php.log'
