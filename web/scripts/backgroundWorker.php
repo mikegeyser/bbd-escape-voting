@@ -37,7 +37,7 @@
 
                 }else{
                     //$result= tweetmessage("#BBDEscape",'/home/pi/Desktop/image.jpg');
-                    $result= tweetmessage("#BBDEscape",mull);
+                    $result= tweetmessage("#BBDEscape",null);
 
                     Logger::debug('No comments at this moment...');
                 }
