@@ -5,21 +5,26 @@
 controlDir=$PWD/control/accesspoint
 webControlDir=$PWD/control/web
 
+logFile=/var/log/escape/service.log
+sudo mkdir -p /var/log/escape
+
+# Start.sh
 echo "#!/bin/bash
-sudo systemctl restart apache2
-sudo systemctl start mysql
+sudo systemctl restart apache2 >> ${logFile} 2>&1
+sudo systemctl start mysql >> ${logFile} 2>&1
 $webControlDir/initPHPLoop.sh &
 $webControlDir/startPHPLoop.sh &
-$controlDir/accesspoint.sh &
-$controlDir/startAP.sh &" > $PWD/control/start.sh
+$controlDir/accesspoint.sh >> ${logFile} 2>&1 &
+$controlDir/startAP.sh >> ${logFile} 2>&1 &" > $PWD/control/start.sh
 sudo chmod 774 $PWD/control/start.sh
 
+# Stop.sh
 echo "#!/bin/bash
-$controlDir/stopAP.sh &
-$controlDir/stopAP.sh &
+$controlDir/stopAP.sh >> ${logFile} 2>&1 &
+$controlDir/stopAP.sh >> ${logFile} 2>&1 &
 $webControlDir/stopPHPLoop.sh &
-sudo killall -9 apache2
-sudo systemctl stop apache2
+sudo /usr/bin/killall -9 apache2 >> ${logFile} 2>&1
+sudo /bin/systemctl stop apache2 >> ${logFile} 2>&1
 " > $PWD/control/stop.sh
 sudo chmod 774 $PWD/control/stop.sh
 
