@@ -30,6 +30,9 @@ Only run it on a pi dedicated for hosting the Escape service!
     - Enable the camera interface on the pi
     - Bridge eth0 and wlan0 (Some module devices refuse to use WiFi if they cannot access internet)
 
+### 4) Clone
+- You can now clone the SD card image to speed up setting up multiple devices
+
 ## Usage
 ### General
 - On boot a hotspot will be created with the SSID defined in `configs/hostapd.conf`
@@ -38,6 +41,8 @@ Only run it on a pi dedicated for hosting the Escape service!
     - Can also tweet the winner and the lucky draw from the admin page
 
 ### Twitter
+- Create a Twitter app at https://apps.twitter.com/
+    - Tweets will be posted using the identity of the account the app was made under
 - Twitter credentials are to be stored in `config.ini`
 - After updating this file, run `refresh.sh` to copy the config to where the server can read it
 
