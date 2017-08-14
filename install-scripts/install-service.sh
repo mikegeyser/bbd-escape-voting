@@ -18,8 +18,8 @@ echo "#!/bin/bash
 $controlDir/stopAP.sh &
 $controlDir/stopAP.sh &
 $webControlDir/stopPHPLoop.sh &
-sudo killall -9 apache2
-sudo systemctl stop apache2
+sudo /usr/bin/killall -9 apache2
+sudo /bin/systemctl stop apache2
 " > $PWD/control/stop.sh
 sudo chmod 774 $PWD/control/stop.sh
 

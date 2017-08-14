@@ -9,4 +9,4 @@ sudo install-scripts/createDB.sh
 sudo install-scripts/patch.sh
 sudo install-scripts/install-service.sh
 
-sudo reboot
+echo "Please reboot..."
