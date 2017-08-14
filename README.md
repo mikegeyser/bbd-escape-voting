@@ -1,6 +1,6 @@
 # Escape
 
-Please take note of the [known issues](https://github.com/group-algol/escape-2/issues/11)
+Please take note of the [known issues](https://github.com/group-algol/escape-2#known-issues)
 
 ## Install
 
@@ -62,3 +62,33 @@ run to install all files and packages,
 ## Logs
 - `/var/log/escape/php.log` - output from the Apache server
 - `/var/log/escape/service.log` - Output from the systemd service and related processes
+
+## Known issues
+### Frontend
+#### High
+- Delete from admin page does not work
+
+### Backend
+#### High
+- Vulnerable to SQL injection
+- No auth protection for admin pages.
+- Images are currently disabled (Caused problems on slow internet on day of demo)
+
+#### Low
+- Database credentials are scattered across php files: Not all php files use db.php
+- Logging not enabled for all php files
+- BackgroundWorker can be spawned  multiple times causing problems with Twitter
+- No error handling for most pages
+- Images are currently saved to a hard coded path (/home/pi/desktop/image.png)
+
+### Setup
+#### Low
+- Having to run `refresh.sh` to update the config can easily be forgotten
+
+### Service
+#### Low
+- Scripts and configs generated on installation makes debug challenging. However this was done to make set the directory and script paths on installation. A static path is required by systemd. The ideal would be to copy the config files to `/etc/escape/` and scripts to `/opt/escape/` and store logs in `/var/log/`
+    - `constrol/start.sh|stop.sh`
+    - `control/accesspoint/accesspoint.sh`
+    - `escape.service`
+- `/var/log/escape/service.log` is not real-time due to buffering
