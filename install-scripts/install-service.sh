@@ -2,7 +2,6 @@
 
 # TO BE EXECUTED FROM ROOT FOLDER!
 
-controlDir=$PWD/control/accesspoint
 webControlDir=$PWD/control/web
 
 logFile=/var/log/escape/service.log
@@ -14,14 +13,11 @@ sudo systemctl restart apache2 >> ${logFile} 2>&1
 sudo systemctl start mysql >> ${logFile} 2>&1
 $webControlDir/initPHPLoop.sh &
 $webControlDir/startPHPLoop.sh &
-$controlDir/accesspoint.sh >> ${logFile} 2>&1 &
-$controlDir/startAP.sh >> ${logFile} 2>&1 &" > $PWD/control/start.sh
+" > $PWD/control/start.sh
 sudo chmod 774 $PWD/control/start.sh
 
 # Stop.sh
 echo "#!/bin/bash
-$controlDir/stopAP.sh >> ${logFile} 2>&1 &
-$controlDir/stopAP.sh >> ${logFile} 2>&1 &
 $webControlDir/stopPHPLoop.sh &
 sudo /usr/bin/killall -9 apache2 >> ${logFile} 2>&1
 sudo /bin/systemctl stop apache2 >> ${logFile} 2>&1

@@ -9,10 +9,3 @@ sudo debconf-set-selections <<< 'mysql-server mysql-server/root_password passwor
 sudo debconf-set-selections <<< 'mysql-server mysql-server/root_password_again password password'
 sudo apt-get -y install mysql-server --force-yes
 sudo apt-get -y install mysql-client --force-yes
-
-sudo apt-get -y install dnsmasq --force-yes
-sudo apt-get -y install hostapd --force-yes
-
-echo iptables-persistent iptables-persistent/autosave_v4 boolean true | sudo debconf-set-selections
-echo iptables-persistent iptables-persistent/autosave_v6 boolean true | sudo debconf-set-selections
-sudo apt-get -y install iptables-persistent --force-yes
