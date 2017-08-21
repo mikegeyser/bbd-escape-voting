@@ -17,7 +17,7 @@ CREATE PROCEDURE InsertRand(IN TimeSlot INT, IN NumRows INT, IN MinVal INT, IN M
             INSERT INTO COMMENTS 
             (COMMENT, PRESENTER, NAME) 
             VALUES 
-            ('Timeslot: ' + TimeSlot + ', Rating: ' + Rating + ', Time: ' + NOW(), TimeSlot, '');
+            ("Timeslot: " + TimeSlot + ", Rating: " + Rating + ", Time: " + UNIX_TIMESTAMP(), TimeSlot, '');
 
             SET i = i + 1;
         END WHILE;

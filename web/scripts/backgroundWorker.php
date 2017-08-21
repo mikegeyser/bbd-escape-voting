@@ -116,7 +116,7 @@
         $comment = $tweet_record["COMMENT"];
         $commentid = $tweet_record["COMMENTID"];
 
-        $result = tweetmessage($comment." - @BBDSoftware #BBDEscape",'');
+        $result = tweetmessage($comment.' - @BBDSoftware #BBDEscape','');
         Logger::debug('Tweeting...'.$comment.PHP_EOL);
 
         if ($result == 0) {
@@ -134,7 +134,7 @@
         Logger::debug('compression done!');
 
         Logger::debug('tweeting image...');
-        $result= tweetmessage("@BBDSoftware #BBDEscape",'/home/pi/Desktop/image.jpg');
+        $result= tweetmessage('@BBDSoftware #BBDEscape','/home/pi/Desktop/image.jpg');
         Logger::debug('tweeting image done!');
     }
 ?>
