@@ -25,8 +25,8 @@ CREATE PROCEDURE InsertRand(IN TimeSlot INT, IN NumRows INT, IN MinVal INT, IN M
     END$$
 DELIMITER ;
 
-InsertRand(1, 100, 1, 5);
-InsertRand(2, 100, 1, 5);
-InsertRand(3, 100, 1, 5);
+call InsertRand(1, 100, 1, 5);
+call InsertRand(2, 100, 1, 5);
+call InsertRand(3, 100, 1, 5);
 
 DROP PROCEDURE InsertRand;
