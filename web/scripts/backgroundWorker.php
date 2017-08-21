@@ -6,7 +6,6 @@
     // This script will run jobs in the background.
     // Only one instance of this script should run!
 
-    $tweet_suffix = "@BBDSoftware #BBDEscape";
     mainLoop();
     function mainLoop() {
         Logger::debug('Background service has been started');
@@ -117,7 +116,7 @@
         $comment = $tweet_record["COMMENT"];
         $commentid = $tweet_record["COMMENTID"];
 
-        $result = tweetmessage($comment." - ".$tweet_suffix,'');
+        $result = tweetmessage($comment." - @BBDSoftware #BBDEscape",'');
         Logger::debug('Tweeting...'.$comment.PHP_EOL);
 
         if ($result == 0) {
@@ -135,7 +134,7 @@
         Logger::debug('compression done!');
 
         Logger::debug('tweeting image...');
-        $result= tweetmessage($tweet_suffix,'/home/pi/Desktop/image.jpg');
+        $result= tweetmessage("@BBDSoftware #BBDEscape",'/home/pi/Desktop/image.jpg');
         Logger::debug('tweeting image done!');
     }
 ?>
