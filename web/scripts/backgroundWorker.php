@@ -6,6 +6,7 @@
     // This script will run jobs in the background.
     // Only one instance of this script should run!
 
+    $tweet_suffix = "@BBDSoftware #BBDEscape";
     mainLoop();
     function mainLoop() {
         Logger::debug('Background service has been started');
@@ -13,37 +14,16 @@
         while (true) {
             if (getCurrentState() === "TRUE") {
                 // Loop here
-              echo shell_exec('sh /var/www/cgi-bin/camera.sh');
+                takePhoto();
 
-              Logger::debug('compressing image...');
-              shell_exec('sh jpegoptim -S 256 /home/pi/Desktop/image/jpg');
-              Logger::debug('Compresseion done.');
-
-                $output = array();
                 $output = getrandomcomment();
 
-                $result = -1;
-                $commentid = -1;
-
                 if(sizeof($output) != 0){
-
-                    $handle = $output[0]["HANDLE"];
-                    $comment = $output[0]["COMMENT"];
-                    $commentid= $output[0]["COMMENTID"];
-
-                    $result= tweetmessage("$comment - #BBDEscape",'/home/pi/Desktop/image.jpg');
-                    //$result= tweetmessage("$comment - #BBDEscape",null);
-                    Logger::debug('Tweeting...'.$comment.PHP_EOL);
-
+                    foreach( $output as $tweet_record ) {
+                        tweetComment($tweet_record);
+                    }                    
                 }else{
-                    //$result= tweetmessage("#BBDEscape",'/home/pi/Desktop/image.jpg');
-                    //$result= tweetmessage("#BBDEscape",null);
-
                     Logger::debug('No comments at this moment...');
-                }
-
-                if ($result == 0) {
-                    setTweetedBit($commentid);
                 }
 
                 Logger::debug('Loop');
@@ -74,8 +54,8 @@
         $sql = "SELECT A.COMMENTID, A.COMMENT, B.HANDLE FROM COMMENTS as A
         LEFT JOIN PRESENTER as B
         ON PRESENTER = PRESENTERID
-        WHERE TWEETED = 0 AND TIME > (NOW() - interval 10 minute)
-        ORDER BY TIME DESC LIMIT 1";
+        WHERE TWEETED = 0
+        ORDER BY TIME DESC LIMIT 5";
 
         	$result = $conn->query($sql);
 
@@ -130,5 +110,32 @@
 
         Logger::debug($currentState);
         return $currentState;
+    }
+
+    function tweetComment($tweet_record) {
+        $handle = $tweet_record["HANDLE"];
+        $comment = $tweet_record["COMMENT"];
+        $commentid = $tweet_record["COMMENTID"];
+
+        $result = tweetmessage($comment." - ".$tweet_suffix,'');
+        Logger::debug('Tweeting...'.$comment.PHP_EOL);
+
+        if ($result == 0) {
+            setTweetedBit($commentid);
+        } else {
+            Logger::error('Problem tweeting: '.$result);        
+        }
+    }
+
+    function takePhoto(){
+        echo shell_exec('sh /var/www/cgi-bin/camera.sh');
+
+        Logger::debug('compressing image...');
+        shell_exec('sh jpegoptim -S 256 /home/pi/Desktop/image/jpg');
+        Logger::debug('compression done!');
+
+        Logger::debug('tweeting image...');
+        $result= tweetmessage($tweet_suffix,'/home/pi/Desktop/image.jpg');
+        Logger::debug('tweeting image done!');
     }
 ?>
