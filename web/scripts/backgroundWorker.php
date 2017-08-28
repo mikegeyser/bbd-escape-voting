@@ -10,6 +10,7 @@
     function mainLoop() {
         Logger::debug('Background service has been started');
 
+        // 10 Tweets + 1 Photo every 10 minutes
         while (true) {
             if (getCurrentState() === "TRUE") {
                 // Loop here
@@ -33,7 +34,7 @@
                 Logger::debug('Background not active');
             }
 
-            sleep(180);
+            sleep(600);
         }
 
     }
@@ -54,7 +55,7 @@
         LEFT JOIN PRESENTER as B
         ON PRESENTER = PRESENTERID
         WHERE TWEETED = 0
-        ORDER BY TIME DESC LIMIT 5";
+        ORDER BY TIME DESC LIMIT 10";
 
         	$result = $conn->query($sql);
 
